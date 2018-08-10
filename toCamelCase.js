@@ -12,6 +12,10 @@ function toCamelCase(str){
     return array.join("")
   }
 }
+//
+// function toCamelCase(str){
+//   return str.replace(/[-_](.)/g, (_, c) => c.toUpperCase());
+// }
 
 // function toCamelCase(str){
 //       var regExp=/[-_]\w/ig;
