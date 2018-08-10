@@ -9,8 +9,16 @@ let n = 101
 
 let x = 0
 // let modinv = function(a,n) { (((a * x) % n) === 1) ? x :(x++, modinv(a,n))}
-
+let gcd = function(a,n){
+  if (!n ){
+    return a
+  } else{
+    return (gcd(n,a%n))
+  }
+}
 let modinv = function(a,n) {
+
+  console.log("what is gcd",gcd(a,n));
   let result = (a * x) % n
   console.log("result x", x);
   console.log(result);

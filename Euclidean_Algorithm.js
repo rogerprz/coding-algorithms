@@ -4,7 +4,7 @@ let a = 270
 let b = 192
 
 function euclid_gcd(a,b) {
-  if ( b === 0 ){
+  if ( !b ){
     return a
   } else {
     debugger
