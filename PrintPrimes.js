@@ -1,12 +1,15 @@
-let i = 2
 function PrintPrimes(num){
-  while (i < num) {
+
+  for (let i= 2; i < num; i++) {
     if (i === 2){
-      console.log(num)
-      i++
-    } else if ((i-1) % 2 === 0 ){
       console.log(i)
       i++
+    }
+    else {
+      if (i-1 % 2 === 0 ){
+        i++
+        console.log(i)
+      }
     }
 
   }
