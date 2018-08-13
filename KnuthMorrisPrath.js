@@ -1,5 +1,9 @@
 // Knuth Morris Pratt Algorithm
-
-function KMPSearch(pattern, text) {
+let text = 'TEXTINGTESTTEARS'
+let pattern = "TEST"
+function KMPSearch(t, p) {
+  debugger;
+  while 
 
 }
+KMPSearch(t, p)
