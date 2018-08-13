@@ -1,6 +1,55 @@
-class Node {
-  constructor(data) {
-    this.data = data
-
-  }
+function LinkedList() {
+  this.head = null;
+  this.tail = null;
 }
+function Node(value, next, prev) {
+  this.value = value;
+  this.next = next;
+  this.prev = prev;
+}
+
+LinkedList.prototype.addToHead = function(value){
+  const newNode = new Node(value, this.head, null);
+  if (this.head) this.head.prev = newNode;
+  else this.tail = newNode;
+  this.head = newNode;
+
+}
+LinkedList.prototype.addToTail = function (value) {
+  const newNode = new Node(value, null, this.tail);
+  if (this.tail) this.tail.prev = newNode;
+  else this.tail = newNode;
+  this.tail = newNode;
+
+}
+
+const list = new LinkedList();
+list.addToHead(100);
+list.addToHead(200);
+list.addToHead("Hi");
+
+console.log(list);
+
+// class Node {
+//   constructor(value, next, prev) {
+//     this.value = value;
+//     this.next = next;
+//     this.prev = prev;
+//
+//   }
+//
+// }
+// class LinkedList {
+//   constructor() {
+//     this.head = null;
+//     this.tail = null;
+//
+//   }
+//   function append(data) {
+//     current = this;
+//     while (current.next != null){
+//       current = current.next;
+//     }
+//     current.next = new Node(data);
+//   }
+// }
