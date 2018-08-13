@@ -33,4 +33,11 @@ class Queue {
   isEmpty(){
     return this.items.length == 0
   }
+  printQueue(){
+    let str = '';
+    for (let i = 0; i < this.items.length; i++) {
+      str += this.items[i] + " "
+    }
+    return str
+  }
 }
