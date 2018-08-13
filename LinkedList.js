@@ -60,27 +60,3 @@ list.addToHead(200);
 list.addToHead("Hi");
 
 console.log(list);
-
-// class Node {
-//   constructor(value, next, prev) {
-//     this.value = value;
-//     this.next = next;
-//     this.prev = prev;
-//
-//   }
-//
-// }
-// class LinkedList {
-//   constructor() {
-//     this.head = null;
-//     this.tail = null;
-//
-//   }
-//   function append(data) {
-//     current = this;
-//     while (current.next != null){
-//       current = current.next;
-//     }
-//     current.next = new Node(data);
-//   }
-// }
