@@ -17,12 +17,12 @@ class Graph {
   constructor(numOfVertices) {
     this.numOfVertices = numOfVertices;
     this.AdjList = new Map();
-
   }
-  addVertex(v
+
+  addVertex(v){
     // initialize the adjacent list with a
     // null array
-    this.AdList.set(v,[]);
+    this.AdjList.set(v,[]);
   }
   addEdge(v, w){
     // get the list for vertex v and put the
@@ -41,16 +41,36 @@ class Graph {
       // for the vertex
       let get_values = this.AdjList.get(i);
       let conc = ''
-
       //iterate over the adjacency list
       // concatenate the values into a string
       for (let j of get_values) {
         conc += j + " "
-      }
+        }
       //log the vertex and its adjacency list
       console.log(i + " -> " + conc);
-    }
-
+      }
   } //end of printGraph
 
 }//end of class
+
+//Implement and use Graph.
+
+let g = new Graph(6)
+let vertices = ["A",'B','C','D','E','F']
+
+
+for (let i = 0; i < vertices.length; i++) {
+  g.addVertex(vertices[i])
+}
+
+// adding edges
+g.addEdge('A', 'B');
+g.addEdge('A', 'D');
+g.addEdge('A', 'E');
+g.addEdge('B', 'C');
+g.addEdge('D', 'E');
+g.addEdge('E', 'F');
+g.addEdge('E', 'C');
+g.addEdge('C', 'F');
+
+g.printGraph()
