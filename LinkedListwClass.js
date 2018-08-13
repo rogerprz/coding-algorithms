@@ -38,6 +38,25 @@ class LinkedList {
     if (this.head) this.head.prev = null
     else this.tail = null;
   }
+  removeTail(){
+    if (!this.tail) return null;
+    let value = this.tail.value;
+    this.tail = this.tail.prev;
+
+    if (this.tail) this.tail.next = null;
+    else this.head = null;
+
+    return value;
+  }
+  search(searchValue){
+    let currentNode = this.head;
+    while(currentNode){
+      if (currentNode.value === searchValue) return currentNode;
+      currentNode = currentNode.next;
+
+    }
+    return null
+  }
 
 }
 
@@ -45,5 +64,9 @@ const list = new LinkedList();
 list.addToHead(100);
 list.addToHead(200);
 list.addToTail("Hi");
+list.addToTail("To tail");
 
+
+console.log(list);
+list.removeTail()
 console.log(list);
