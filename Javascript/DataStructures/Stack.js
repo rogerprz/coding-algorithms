@@ -9,12 +9,15 @@ class Stack {
   constructor() {
     this.items =[];
   }
-  push(){
+  push(element){
     this.items.push(element)
   }
 
   pop(){
-    (this.items.length === 0) ? "Underflow" : this.items.pop()
+    if (this.items.length === 0) {
+      return "Underflow"
+    }
+    return this.items.pop()
   }
   peek(){
     //returns top most element to view not delete
@@ -34,7 +37,9 @@ class Stack {
     return str
   }
 
-}
+}//end of class
+
+
 //TESTING THE STACK CLASS
 // creating object for stack class
 var stack = new Stack();
@@ -46,8 +51,8 @@ console.log(stack.isEmpty());
 
 // returns Underflow
 console.log(stack.pop());
-Some more functions of stack class
-Example :
+// Some more functions of stack class
+// Example :
 
 // Adding element to the stack
 stack.push(10);
@@ -65,4 +70,4 @@ console.log(stack.peek());
 console.log(stack.pop());
 
 // returns [10, 20]
-console.log(stack.printStack()); 
+console.log(stack.printStack());
