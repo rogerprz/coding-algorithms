@@ -52,8 +52,8 @@ console.log(stack.isEmpty());
 // returns Underflow
 console.log(stack.pop());
 // Some more functions of stack class
-// Example :
 
+// Example :
 // Adding element to the stack
 stack.push(10);
 stack.push(20);
