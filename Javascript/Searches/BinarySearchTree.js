@@ -4,7 +4,7 @@ class BinarySearchTree {
   }
 
   insert(value){
-   this.root === null ? this.root = Node.new(value) : this.root.insert(value)
+   this.root === null ? this.root = new Node(value) : this.root.insert(value)
   }
   treeSearch(value, node = this.root){
     if (node === null){
@@ -29,14 +29,15 @@ class Node {
 
   insert(newValue){
     if (newValue <= this.key) {
-      (this.left === null) ? this.left = Node.new(newValue) : this.left.insert(newValue)
+      (this.left === null) ? this.left = new Node(newValue) : this.left.insert(newValue)
     } else if (newValue > this.key) {
-      (this.right === null) ? this.right = Node.new(newValue) : this.right.insert(newValue)
+      (this.right === null) ? this.right = new Node(newValue) : this.right.insert(newValue)
     }
   }
 }
-start = BinarySearchTree.new
+start = new BinarySearchTree()
 start.insert(25)
 start.insert(33)
 start.insert(44)
 start.insert(10)
+console.log(start);
