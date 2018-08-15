@@ -1,20 +1,18 @@
-// function PrintPrimes(num){
-//   let p = 2
-//   let primesArray = new Array()
-//   for (let i = 2; i< num;i++){
-//     if (i === 2 || i === 3 || i === 5 || i === 7){
-//       primesArray.push(i)
-//       console.log(i);
-//     } else if( (i % 2 === 0) || (i % 3 === 0) || (i % 5 === 0) || (i % 7 === 0)){
-//
-//     } else {
-//       primesArray.push(i)
-//       console.log(i);
-//     }
-//   }
-//   return primesArray
-// }
-// console.log(PrintPrimes(100))
+function PrimeNumbers(num) {
+  for (let count = 1; count<= num; count++){
+
+    let isPrime = true
+    for (let j = 2; j < count; j++) {
+      if (count % j === 0){
+        isPrime = false
+      }
+    }
+    if (isPrime === true){
+      console.log(count);
+    }
+  }
+
+}
 
 
 // function isPrime(num) {
@@ -51,9 +49,26 @@ function isPrime(num) {
   }
 }
 // isPrime(-11)
-console.log(isPrime(1))
+// console.log(isPrime(1))
 // my solution
 function isPrime(num) {
   for (let i = 2; i < num; i++) if (num % i == 0) return false;
   return num >= 2;
 }
+
+// console.log(PrimeNumbers(55))
+console.log("hi");
+function recursionPrimeNum(count = 2, num) {
+  if (num === 0 || num === 1 ){
+    return num
+  } else {
+    if (num % count === 1){
+      console.log(count);
+      count++
+      return recursionPrimeNum(count, num)
+    }
+  }
+
+}
+
+console.log(recursionPrimeNum(20));
