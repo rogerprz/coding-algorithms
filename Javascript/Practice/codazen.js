@@ -55,17 +55,15 @@ let arr = [0, 1, 0, 0, 2, 3]
 function sortArray(arr){
   let count = 0
   for (let i = 0; i <arr.length;i++) {
-    console.log("elem",arr[i]);
     if (arr[i] === 0){
       count ++
       arr.splice(i, 1)
-
+      // if the i-- is not in place the count will skip the index 2 or the zero after the 1.
+      i--
     }
   }
+  for (let j = 0;j<count;j++){ arr.push(0)}
+  return arr
+}
 
-  console.log("what is ",arr, count)
-    return arr
-
-  }
-
-  sortArray(arr)
+  console.log(sortArray(arr))
