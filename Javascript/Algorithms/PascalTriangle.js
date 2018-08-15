@@ -2,8 +2,10 @@ function PascalTriangle(num) {
   let pTriangle =[]
 
   for (let i = 0; i<num;i++){
-    pTriangle[i] = newArray(i+1)
+    pTriangle[i] = new Array(i+1)
     for (let j=0;j<i+1;j++){
+      console.log('pTriangle', pTriangle);
+
       if (j === 0 || j === i) {
         pTriangle[i][j] = 1;
       } else{
@@ -14,4 +16,4 @@ function PascalTriangle(num) {
   return pTriangle
 }
 // PascalTriangle(num)
-console.log(PascalTriangle(4));
+console.log(PascalTriangle(7));
