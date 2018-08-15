@@ -1,4 +1,5 @@
 reverseStr	/Users/rogerperez/Sites/codeChallenges/coding-algorithims/Javascript/Practice/codazen.js	/^\/\/ function reverseStr(str){$/;"	function	line:4
 recursiveRevStr	/Users/rogerperez/Sites/codeChallenges/coding-algorithims/Javascript/Practice/codazen.js	/^\/\/ function recursiveRevStr(str){$/;"	function	line:15
 sortArray	/Users/rogerperez/Sites/codeChallenges/coding-algorithims/Javascript/Practice/codazen.js	/^\/\/ function sortArray(arr){$/;"	function	line:28
-sortArray	/Users/rogerperez/Sites/codeChallenges/coding-algorithims/Javascript/Practice/codazen.js	/^function sortArray(arr){$/;"	function	line:41
+sortArray	/Users/rogerperez/Sites/codeChallenges/coding-algorithims/Javascript/Practice/codazen.js	/^\/\/ function sortArray(arr){$/;"	function	line:40
+sortArray	/Users/rogerperez/Sites/codeChallenges/coding-algorithims/Javascript/Practice/codazen.js	/^function sortArray(arr){$/;"	function	line:55

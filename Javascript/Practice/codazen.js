@@ -36,18 +36,34 @@
 //   return arr
 //
 //   }
+// let arr = [0, 1, 0, 0, 2, 3]
+// function sortArray(arr){
+//   let count = 0
+//   for (let i = 0; i <arr.length;i++) {
+//     console.log("elem",arr[i]);
+//     if (arr[i] === 0){
+//       count ++
+//       arr.splice(i, 1)
+//
+//     }
+//   }
+// console.log("what is ",arr, count)
+//   return arr
+// }
 
 let arr = [0, 1, 0, 0, 2, 3]
 function sortArray(arr){
-  let size = arr.length
+  let count = 0
   for (let i = 0; i <arr.length;i++) {
-    console.log(arr[i]);
+    console.log("elem",arr[i]);
     if (arr[i] === 0){
-      arr.push(arr[i])
-      arr[i].pop()
+      count ++
+      arr.splice(i, 1)
+
     }
   }
-  console.log(arr)
+
+  console.log("what is ",arr, count)
     return arr
 
   }
