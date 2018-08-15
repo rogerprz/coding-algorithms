@@ -28,6 +28,15 @@ class Node {
   }
 
   insert(newValue){
-    
+    if (newValue <= this.key) {
+      (this.left === null) ? this.left = Node.new(newValue) : this.left.insert(newValue)
+    } else if (newValue > this.key) {
+      (this.right === null) ? this.right = Node.new(newValue) : this.right.insert(newValue)
+    }
   }
 }
+start = BinarySearchTree.new
+start.insert(25)
+start.insert(33)
+start.insert(44)
+start.insert(10)
