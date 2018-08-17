@@ -44,7 +44,6 @@
 //     if (arr[i] === 0){
 //       count ++
 //       arr.splice(i, 1)
-//
 //     }
 //   }
 // console.log("what is ",arr, count)
