@@ -29,3 +29,10 @@ fibonacci(5)
 //   if (num <= 1) return 1;
 //
 //   return memo[num] = fibonacci(num - 1, memo) + fibonacci(num - 2, memo);
+
+// alternate solution for recursion
+// How about using smarter recursion?
+//
+// function fib(a, b, n) { if(n) return fib(b, a + b, n — 1); else return a }
+//
+// fib(0, 1, 50)
