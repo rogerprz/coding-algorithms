@@ -1,6 +1,6 @@
 function tickets(peopleInLine){
-  let total = 0, noChange
-  let cost = 25, change
+  let total = 0, noChange, change
+  const cost = 25
   let count = 0
   peopleInLine.forEach(money=>{
     if (money === cost){
