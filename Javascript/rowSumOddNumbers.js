@@ -1,8 +1,22 @@
 function rowSumOddNumbers(n){
-  const reducer = (accumulator, currentValue) => accumulator + currentValue;
-
-  newArr.reduce((accumulator, currentValue)=> accumulator + currentValue, 0)
-  console.log(arr);
+  let odds = 1, temp
+  for (let i = 1;i<=n;i++){
+    odds+=2
+  }
+  console.log("odds before 2nd", odds);
+  let total = odds
+  for (let j = 1; j<n; j++){
+    // console.log("loop temp",temp);
+    temp = total
+    // console.log("temp",temp);
+    odds+= 2
+    // console.log("odds",odds);
+    total = temp + odds
+    // console.log("total",total);
+    // debugger;
+  }
+  console.log('what is total',total);
+  return total
 }
 
 
