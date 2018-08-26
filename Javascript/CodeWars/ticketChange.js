@@ -1,3 +1,4 @@
+let registerArr = []
 function tickets(peopleInLine){
 
 }
@@ -31,3 +32,23 @@ function tickets(peopleInLine){
   })
   return noChange
 }
+
+
+
+// 2nd alternate
+// let cost = 25, changeAvail, total = 0
+// let cashInHand = {
+//   25 : 0,
+//   50 : 0,
+//   100 : 0,
+// }
+// peopleInLine.forEach(payment=>{
+//   if (payment === cost ){
+//     total+=cost
+//     cashInHand[payment]+=1
+//     return changeAvail = "YES"
+//   } else if ((payment - cost) > total ) {
+//
+//   }
+//
+// })
