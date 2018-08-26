@@ -1,6 +1,8 @@
 function rowSumOddNumbers(n){
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-
+  newArr.reduce((accumulator, currentValue)=> accumulator + currentValue, 0)
+  console.log(arr);
 }
 
 
