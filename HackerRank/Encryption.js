@@ -6,11 +6,14 @@ function encryption(s) {
   let start = Math.floor(Math.sqrt(arr.length))
   while (arr.length > 0){
     arrays.push(arr.splice(0, start));
+
     console.log(arrays);
   }
+  debugger 
 
 
 }
+console.log('hi');
 
 encryption("feedthedog")
 
