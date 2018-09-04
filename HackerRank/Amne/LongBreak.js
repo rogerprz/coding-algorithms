@@ -7,24 +7,28 @@ function findBreakDuration(n, k, t, start, finish) {
     pos = 0
     event = 1
     for (let i = 0; i< t;i++){
-      // debugger
-      // if (i > 3 && i < 8){
-      //   console.log('newArr', newArr[i], i);
-        console.log('count: ', count, 'what is i', i);
-        // console.log('what is i', i)
-      //   console.log('newArr', newArr);
-      //   debugger }
-
-      if (i >= start[event] && i <= finish[event]-1 ){
-          newArr[i] = [event, i]
-          console.log("i: ",i, "fin count: ",finish[count]);
-          // debuggerx
-          count+=1
-        }
-      else{
-        newArr[i] = ['free', i]
-        event+=1
+      console.log('what is start[count]', start[count])
+      if (i>= 4){
+        debugger
       }
+      if (i >= start[count] && i <= finish[count]-1 ){
+        newArr[i] = [event, i]
+
+      } else if (i === finish[count-1]) {
+        debugger;
+        newArr[i] = [event, i]
+
+        event+=1
+        count+=1
+      }
+      else {
+        newArr[i] = ['free', i]
+         pos+=1
+         event+=1
+         count+=1
+      }
+
+
     }
     console.log(newArr)
 
