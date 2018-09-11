@@ -3,7 +3,11 @@ let text = 'TEXTINGTESTTEARS'
 let pattern = "TEST"
 function KMPSearch(t, p) {
   debugger;
-  while 
+  while
 
 }
 KMPSearch(t, p)
+
+document.addEventListener('event', function (e) {
+
+});

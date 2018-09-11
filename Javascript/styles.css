@@ -1,0 +1,17 @@
+.third-red{
+  background-color: red;
+  color:white;
+  padding: 20px;
+  font-size: 36px;
+  margin: 20px;
+}
+.normal{
+  background-color: black;
+  color:white;
+  padding: 20px;
+  font-size: 36px;
+  margin: 20px;
+}
+#list-section{
+  margin:30px;
+}
