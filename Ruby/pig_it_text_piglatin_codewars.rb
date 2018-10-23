@@ -17,3 +17,5 @@ end
 def alt_pig_it text
   text.gsub(/(\w)(\w+)*/, '\2\1ay')
 end
+
+#   text.split.map{|word| word =~ /\w/ ? "#{word[1..-1]}#{word[0]}ay" : word}.join(" ")
