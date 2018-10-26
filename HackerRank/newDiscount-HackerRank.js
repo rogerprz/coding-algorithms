@@ -1,38 +1,26 @@
 
 const reducer = (acc, curr) => acc + curr;
-// I didn't have time to try and refactor, but I wanted to do below is try and use reduce to
-// multiply the constValues expressed below.
-// That would have cut down the lines of code used.
-//
-const multiplier = (acc, curr) => acc*curr
+
+const multiplier = (acc, curr) => ((!isNaN(curr)) ? (acc*curr) : acc)
+
+
   // arr.reduce((acc, curr) => ((curr > 0) ? (acc*curr) : acc), 0)
     // return isNaN(acc) ? (acc * curr) : curr
 function quantityDiscount(items) {
-    let itemPriceArr = []; let reducedArr = []
+    let itemPriceArr = []; let reducedPriceArr = []
     const totalQuantity = totalOrderQuantity(items)
-    let reduced_quant_adjust = (totalQuantity) **-0.1
+    const reduced_quant_adjust = (totalQuantity) **-0.1
 
     items.forEach(item=>{
-      let itemValues = Object.values(item)
-      let constValues = itemValues.reduce((acc, curr) => ((!isNaN(curr)) ? (acc*curr) : acc), 1)
-      debugger
-        let quant_adjust = item.quantity ** -0.1;
-        let area = item.width * item.height;
-        let quantity = item.quantity;
-        let product_area_price = item.product.area_price;
-
-
-        // let constValues = area * product_area_price * quantity
-
-        let item_price =  constValues * quant_adjust
-        let new_reduced_item_price = constValues * reduced_quant_adjust
-
-        itemPriceArr.push(item_price)
-        reducedArr.push(new_reduced_item_price)
+      let itemArr = Object.values(item)
+      let constValuesTotal = itemArr.reduce(multiplier, 1) * item.product.area_price //multiplies quant,width, & height * area_price
+      let quant_adjust = item.quantity ** -0.1;
+      itemPriceArr.push(constValuesTotal * quant_adjust)
+      reducedPriceArr.push(constValuesTotal * reduced_quant_adjust)
     })
 
     let oldPriceTotal = (itemPriceArr.reduce(reducer, 0)).toFixed(2)
-    let reducedTotal = (reducedArr.reduce(reducer, 0)).toFixed(2)
+    let reducedTotal = (reducedPriceArr.reduce(reducer, 0)).toFixed(2)
     let total = (oldPriceTotal-reducedTotal === 0) ? 0 : (oldPriceTotal-reducedTotal).toFixed(2)
 
     return (oldPriceTotal-reducedTotal === 0) ? 0 : (oldPriceTotal-reducedTotal).toFixed(2)
