@@ -3,9 +3,6 @@ const reducer = (acc, curr) => acc + curr;
 
 const multiplier = (acc, curr) => ((!isNaN(curr)) ? (acc*curr) : acc)
 
-
-  // arr.reduce((acc, curr) => ((curr > 0) ? (acc*curr) : acc), 0)
-    // return isNaN(acc) ? (acc * curr) : curr
 function quantityDiscount(items) {
     let itemPriceArr = []; let reducedPriceArr = []
     const totalQuantity = totalOrderQuantity(items)
