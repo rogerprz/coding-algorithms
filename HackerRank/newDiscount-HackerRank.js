@@ -1,7 +1,6 @@
 
 const reducer = (acc, curr) => acc + curr;
 
-const multiplier = (acc, curr) => ((!isNaN(curr)) ? (acc*curr) : acc)
 
 function quantityDiscount(items) {
     let itemPriceArr = []; let reducedPriceArr = []
@@ -9,7 +8,8 @@ function quantityDiscount(items) {
     const reduced_quant_adjust = (totalQuantity) **-0.1
 
     items.forEach(item=>{
-      let itemArr = Object.values(item)
+
+      let itemArr = multiplyOrderValues(item)
       let constValuesTotal = itemArr.reduce(multiplier, 1) * item.product.area_price //multiplies quant,width, & height * area_price
       let quant_adjust = item.quantity ** -0.1;
       itemPriceArr.push(constValuesTotal * quant_adjust)
@@ -19,7 +19,6 @@ function quantityDiscount(items) {
     let oldPriceTotal = (itemPriceArr.reduce(reducer, 0)).toFixed(2)
     let reducedTotal = (reducedPriceArr.reduce(reducer, 0)).toFixed(2)
     let total = (oldPriceTotal-reducedTotal === 0) ? 0 : (oldPriceTotal-reducedTotal).toFixed(2)
-
     return (oldPriceTotal-reducedTotal === 0) ? 0 : (oldPriceTotal-reducedTotal).toFixed(2)
 }
 function totalOrderQuantity(items){
@@ -27,6 +26,11 @@ function totalOrderQuantity(items){
     let total = 0
     items.forEach(item=>total += item.quantity)
     return total
+}
+function multiplyOrderValues(item){
+  let itemArr = Object.values(item)
+  const multiplier = (acc, curr) => ((!isNaN(curr)) ? (acc*curr) : acc)
+  return itemArr.reduce(multiplier, 1) * item.product.area_price
 }
 
 
