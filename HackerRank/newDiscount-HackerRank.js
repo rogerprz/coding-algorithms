@@ -8,8 +8,7 @@ function quantityDiscount(items) {
     const reduced_quant_adjust = (totalQuantity) **-0.1
 
     items.forEach(item=>{
-      let itemArr = multiplyOrderValues(item)
-      let constValuesTotal = itemArr.reduce(multiplier, 1) * item.product.area_price //multiplies quant,width, & height * area_price
+      let constValuesTotal = multiplyOrderValues(item) * item.product.area_price
       let quant_adjust = item.quantity ** -0.1;
       itemPriceArr.push(constValuesTotal * quant_adjust)
       reducedPriceArr.push(constValuesTotal * reduced_quant_adjust)
@@ -17,6 +16,7 @@ function quantityDiscount(items) {
 
     let oldPriceTotal = (itemPriceArr.reduce(reducer, 0)).toFixed(2)
     let reducedTotal = (reducedPriceArr.reduce(reducer, 0)).toFixed(2)
+    console.log((oldPriceTotal-reducedTotal === 0) ? 0 : (oldPriceTotal-reducedTotal).toFixed(2))
     return (oldPriceTotal-reducedTotal === 0) ? 0 : (oldPriceTotal-reducedTotal).toFixed(2)
 }
 function totalOrderQuantity(items){
