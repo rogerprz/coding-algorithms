@@ -1,7 +1,6 @@
 
 const reducer = (acc, curr) => acc + curr;
 
-
 function quantityDiscount(items) {
     let itemPriceArr = []; let reducedPriceArr = []
     const totalQuantity = totalOrderQuantity(items)
