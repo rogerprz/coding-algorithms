@@ -10,25 +10,11 @@ console.log("hello");
 // *    btnMul    A button for the multiplication operation.
 // /    btnDiv    A button for the integer division operation.
 
-<div id='res' class='calculatorContainer'>
-
-  <div>
-    <button id='btn0' class='buttonClass'></button>
-    <button id='btn1' class='buttonClass'></button>
-    <button id='btnClr' class='buttonClass'>3</button>
-    <button id='btnEql' class='buttonClass'>4</button>
-    <button id='btnSum' class='buttonClass'>4</button>
-    <button id='btnSub' class='buttonClass'>4</button>
-    <button id='btnMul' class='buttonClass'>4</button>
-    <button id='btnDiv' class='buttonClass'>4</button>
-  </div>
-
-
-</div>
 
 
 
-// Styling. The document's elements must have the following styles:
+
+// Styling. The documesnt's elements must have the following styles:
 
 // body has a width of 33%.
 // res has a background-color of lightgray, a border that is solid, a height of 48px, and a font-size of 20px.
