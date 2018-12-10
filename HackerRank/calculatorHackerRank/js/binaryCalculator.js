@@ -9,7 +9,23 @@ console.log("hello");
 // -    btnSub    A button for the subtraction operation.
 // *    btnMul    A button for the multiplication operation.
 // /    btnDiv    A button for the integer division operation.
+let zeroBtn = document.getElementById('btn0');
+let oneBtn = document.getElementById('btn1');
+let clearBtn = document.getElementById('btnClr');
+let equalBtn = document.getElementById('btnEql');
+let sumBtn = document.getElementById('btnSum');
+let subBtn = document.getElementById('btnSub');
+let multiBtn = document.getElementById('btnMul');
+let divBtn = document.getElementById('btnDiv');
 
+zeroBtn.innerHTML  = '0';
+oneBtn.innerHTML   = '1';
+clearBtn.innerHTML = 'C';
+equalBtn.innerHTML = '=';
+sumBtn.innerHTML   = '+';
+subBtn.innerHTML   = '-'
+multiBtn.innerHTML = "*";
+divBtn.innerHTML   = "/";
 
 
 
