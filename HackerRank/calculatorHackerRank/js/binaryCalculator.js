@@ -1,4 +1,3 @@
-console.log("hello");
 //       res    Contains the result of button presses.
 // btns    A button container that displays all eight calculator buttons.
 // 0    btn0    A button expressing binary digit .
