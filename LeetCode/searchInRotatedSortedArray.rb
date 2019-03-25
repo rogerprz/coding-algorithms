@@ -11,6 +11,7 @@ def search1(nums, target)
         else 
             return mid = -1
         end 
+        
         return mid if nums[mid-1]>nums[mid]
         if nums[mid-1] < nums[mid] && mid > nums[mid]
             right = mid-1
