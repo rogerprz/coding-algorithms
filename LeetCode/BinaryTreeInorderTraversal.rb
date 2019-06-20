@@ -6,7 +6,6 @@ end
 
 def traverse_tree(root, results)
         return [] if root == nil
-        # puts "RES: #{results}, R: #{root.val}"
         traverse_tree(root.left, results)
         if root.val
             results << root.val
