@@ -20,6 +20,5 @@ var twoSum = function(nums, target) {
             return [i, changeIndex + 1]
         }
     }
-    // console.log('R:', result)
-    // return result
+
 };
