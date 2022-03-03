@@ -7,9 +7,7 @@ var containsDuplicate = function(nums) {
       let currElem = nums[i]
       let testArr = nums.slice(i+1)
       
-      if (testArr.indexOf(currElem) > -1){
-        return true
-      }
+      if (testArr.indexOf(currElem) > -1) return true
     }
   return false
 };
