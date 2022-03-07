@@ -12,10 +12,6 @@
  * @return {boolean}
  */
 var isSameTree = function(p, q) {
-  let firstNode = p
-  let secNode = q
-  
-  console.log('START')
   return dfs(p,q)
   
   function dfs(firstNode, secNode) {
