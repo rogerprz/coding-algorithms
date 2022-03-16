@@ -22,3 +22,24 @@ var climbStairs = function(n) {
 //     }
 //     return n === 1 ? a : b;
 // };
+
+
+/* 
+1 -> 1
+2 -> 2 (1+1 | 2+0)
+3 -> 3 (1+1+1 | 2+1 | 1+2)
+4 -> 5 (1+1+1+1 | 2+1+1 | 2+2 | 1+2+1 | 1+1+2)
+and so on
+
+This is exactly a fibonacci sequence
+Each next amount of steps equals to sum of previous 2
+1 -> 2 -> 3 -> 5 -> 8 -> 13
+*/
+// var climbStairs = function(n) {
+//   let a = 0;
+//   let b = 1;
+//   for (let i = 0; i < n; i++) {
+//     [a, b] = [b, a + b];
+//   }
+//   return b;
+// };
