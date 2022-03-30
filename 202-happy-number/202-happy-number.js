@@ -14,9 +14,7 @@ var isHappy = function(n) {
       }
       n = squaredSum
       
-      if(n === 1){
-        return true
-      }
+      if(n === 1) return true
       count++
       
     }
