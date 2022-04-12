@@ -16,16 +16,9 @@ function mergeSortedArrays(arr1, arr2) {
     if (arr1[0] < arr2[0]) {
       const elem = arr1.shift();
       result.push(elem);
-    }
-    if (arr1[0] > arr2[0]) {
+    } else {
       const elem = arr2.shift();
       result.push(elem);
-    }
-    if (arr1[0] === arr2[0]) {
-      const elem1 = arr1.shift();
-      const elem2 = arr2.shift();
-      result.push(elem1);
-      result.push(elem2);
     }
     if (arr1.length === 0 && arr2.lenth > 0) {
       const elem2 = arr2.shift();
