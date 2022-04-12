@@ -29,8 +29,8 @@ function mergeSortedArrays(arr1, arr2) {
       result.push(elem1);
     }
   }
-  console.log('RRAAA:', arr1, arr2);
-  console.log('RRR:', result);
+
+  console.log('RRR:', result, arr1, arr2);
   return result;
 }
 
