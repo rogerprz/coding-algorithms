@@ -1,10 +1,3 @@
-// let myLinkedList = {
-//   head: {
-//     value: 10,
-//     next: {}
-//   }
-// };
-
 class Node {
   constructor(value) {
     this.value = value;
@@ -21,7 +14,6 @@ class LinkedList {
 
   append(value) {
     const newNode = new Node(value);
-
     this.tail.next = newNode;
     this.tail = newNode;
     this.length++;
@@ -30,10 +22,10 @@ class LinkedList {
 
   prepend(value) {
     const newNode = new Node(value);
-
     newNode.next = this.head;
     this.head = newNode;
     this.length++;
+
     return this;
   }
 
@@ -45,28 +37,17 @@ class LinkedList {
       array.push(currentNode.value);
       currentNode = currentNode.next;
     }
-    console.log('List:', array);
     return array;
-  }
-
-  insert(index, value) {
-    const newNode = new Node(value);
-
-    while (this.length != index) {}
-    this.length++;
-
-    return this;
   }
 }
 
-const node = new Node(10);
+const node = new Node(2);
 
 const myLinkedList = new LinkedList(node);
-myLinkedList.append(101);
-myLinkedList.append(15);
-myLinkedList.append(120);
-myLinkedList.prepend(1);
 
-myLinkedList.printList();
+myLinkedList.append(5);
+myLinkedList.append(7);
+myLinkedList.prepend(11);
+// myLinkedList.printList();
 
 console.log(myLinkedList);
