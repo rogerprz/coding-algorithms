@@ -56,7 +56,7 @@ class LinkedList {
     }
     let currentNode = this.head;
     let count = 0;
-
+    2;
     while (count !== index - 1) {
       console.log('WHILE', count, index);
 
