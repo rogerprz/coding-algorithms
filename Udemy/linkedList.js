@@ -54,18 +54,10 @@ class LinkedList {
     if (index >= this.length) {
       return this.append(newNode);
     }
-    let currentNode = this.head;
-    let count = 0;
-    2;
-    while (count !== index - 1) {
-      console.log('WHILE', count, index);
+    const leader = this.traverseToIndex(index - 1);
+    const afterPointer = leader.next;
 
-      currentNode = currentNode.next;
-      count++;
-    }
-    const afterPointer = currentNode.next;
-
-    currentNode.next = newNode;
+    leader.next = newNode;
     newNode.next = afterPointer;
     this.length++;
 
@@ -76,7 +68,11 @@ class LinkedList {
     let counter = 0;
     let currentNode = this.head;
 
-    while (counter !== index) {}
+    while (counter !== index) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+    return currentNode;
   }
 }
 
