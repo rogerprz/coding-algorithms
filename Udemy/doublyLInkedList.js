@@ -2,7 +2,7 @@ class Node {
   constructor(value) {
     this.value = value;
     this.next = null;
-    this.prev = null;
+    // this.prev = null;
   }
 }
 
@@ -12,4 +12,77 @@ class DoublyLinkedList {
     this.tail = this.head;
     this.length = 1;
   }
+
+  append(value) {
+    const newNode = new Node(value);
+
+    this.tail.next = newNode;
+    this.tail = newNode;
+    this.length++;
+
+    return this;
+  }
+
+  prepend(value) {
+    const newNode = new Node(value);
+
+    newNode.next = this.head;
+    this.head = newNode;
+    this.length++;
+    return this;
+  }
+
+  insert(index, value) {
+    const newNode = new Node(value);
+    if (index >= this.length) {
+      this.append(newNode);
+    }
+
+    let leaderNode = this.traverseToIndex(index - 1);
+
+    let afterPointer = leaderNode.next;
+    leaderNode.next = newNode;
+    newNode.next = afterPointer;
+
+    this.length++;
+  }
+
+  traverseToIndex(index) {
+    let counter = 0;
+    let currentNode = this.head;
+
+    while (counter !== index) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+    return currentNode;
+  }
+
+  printList() {
+    const array = [];
+
+    let currentNode = this.head;
+
+    while (currentNode !== null) {
+      array.push(currentNode.value);
+
+      currentNode = currentNode.next;
+    }
+    console.log('A:', array);
+    return array;
+  }
 }
+
+const node = new Node(2);
+
+const myLinkedList = new DoublyLinkedList(node);
+
+myLinkedList.append(5);
+myLinkedList.append(15);
+myLinkedList.prepend('prepend');
+myLinkedList.printList();
+
+myLinkedList.insert(1, 'inserted');
+
+myLinkedList.printList();
+console.log(myLinkedList);
