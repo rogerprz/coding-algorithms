@@ -2,6 +2,7 @@ class Node {
   constructor(value) {
     this.value = value;
     this.next = null;
+    this.prev = null;
     // this.prev = null;
   }
 }
@@ -47,6 +48,14 @@ class DoublyLinkedList {
     this.length++;
   }
 
+  remove(index) {
+    let leaderNode = this.traverseToIndex(index - 1);
+    let removedNode = leaderNode.next;
+    leaderNode.next = removedNode.next;
+
+    return this;
+  }
+
   traverseToIndex(index) {
     let counter = 0;
     let currentNode = this.head;
@@ -77,12 +86,16 @@ const node = new Node(2);
 
 const myLinkedList = new DoublyLinkedList(node);
 
-myLinkedList.append(5);
-myLinkedList.append(15);
-myLinkedList.prepend('prepend');
+// myLinkedList.append(5);
+// myLinkedList.append(15);
+// myLinkedList.prepend('prepend');
+// myLinkedList.printList();
+
+// myLinkedList.insert(1, 'inserted');
+
+// myLinkedList.printList();
+
+// myLinkedList.remove(1);
 myLinkedList.printList();
 
-myLinkedList.insert(1, 'inserted');
-
-myLinkedList.printList();
 console.log(myLinkedList);
