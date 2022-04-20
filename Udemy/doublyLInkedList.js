@@ -70,6 +70,8 @@ class DoublyLinkedList {
     }
 
     let first = this.head;
+    this.tail = this.head;
+
     let second = first.next;
 
     while (second) {

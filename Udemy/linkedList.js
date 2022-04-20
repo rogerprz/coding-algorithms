@@ -74,29 +74,7 @@ class LinkedList {
     return this.printList();
   }
 
-  reverse() {
-    if (!this.head.next) {
-      return this;
-    }
-
-    let first = this.head;
-    this.tail = this.head;
-
-    let second = first.next;
-
-    while (second) {
-      const thirdTemp = second.next;
-
-      second.next = first;
-      first = second;
-
-      second = thirdTemp;
-    }
-    this.head.next = null;
-    this.head = first;
-
-    return this.printList();
-  }
+  reverse() {}
 
   traverseToIndex(index) {
     let counter = 0;
