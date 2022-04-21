@@ -8,6 +8,13 @@
 
 ### Why LinkedList?
 
+| Pros           | Cons        |
+| -------------- | ----------- |
+| Fast insertion | Slow lookup |
+| Fast Deletion  | More Memory |
+| Ordered        |             |
+| Flexible Size  |             |
+
 - It has a lose structure
 - Insert and delete operations are O(1)
 - Order is compared to hash tables

@@ -74,7 +74,28 @@ class LinkedList {
     return this.printList();
   }
 
-  reverse() {}
+  reverse() {
+    if (!this.head.next) {
+      return this.head;
+    }
+
+    let first = this.head;
+    this.tail = first;
+
+    let second = first.next;
+
+    while (second) {
+      let third = second.next;
+
+      second.next = first;
+      first = second;
+      second = third;
+    }
+    this.head.next = null;
+    this.head = first;
+
+    return this.printList();
+  }
 
   traverseToIndex(index) {
     let counter = 0;
@@ -99,8 +120,8 @@ myLinkedList.printList();
 myLinkedList.reverse();
 // myLinkedList.prepend(1);
 
-myLinkedList.printList();
+// myLinkedList.printList();
 console.log('HERE-------');
-myLinkedList.remove(2);
+// myLinkedList.remove(2);
 
 console.log(myLinkedList);
