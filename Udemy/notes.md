@@ -26,3 +26,26 @@ Big O notation:
 - lookup O(n)
 - insert O(n)
 - delete O(n)
+
+## Stacks
+
+- Can only be pop()
+- Has LIFO (Last In First Out)
+
+Big O notation:
+
+- lookup O(n)
+- pop O(1)
+- push O(1)
+- peek O(1)
+
+## Queues
+
+- Like a rollercoaster ride, First In First Out (FIFO)
+
+Big O notation:
+
+- lookup O(n)
+- enqueue O(1)
+- dequeue O(1)
+- peek O(1)
