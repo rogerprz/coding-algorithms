@@ -40,8 +40,14 @@ class StackArray {
     if (!this.top) {
       return null;
     }
-    this.top = this.top.next;
 
-    return this;
+    if (this.top === this.bottom) {
+      this.bottom = null;
+    }
+    const poppedTop = this.top;
+    this.top = this.top.next;
+    this.length--;
+
+    return poppedTop;
   }
 }
