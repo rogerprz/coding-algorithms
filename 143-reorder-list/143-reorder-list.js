@@ -15,9 +15,8 @@ var reorderList = function(head) {
   
   // Step 1: use a fase and slow pointer to move to the middle of the linked list
   // in case list is even, then move to the middle left node 
-  
   let fast = head.next, slow = head;
-  // console.log('F', fast, 'S:', slow)
+
   while (fast && fast.next) {
     fast = fast.next.next; 
     slow = slow.next;
