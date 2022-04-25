@@ -10,40 +10,42 @@
  * @return {void} Do not return anything, modify head in-place instead.
  */
 var reorderList = function(head) {
-  // nothing need to be done in case list is either empty or contains only one or two nodes
+  //   NOT MY SOLUTION
   if (!head || !head.next || !head.next.next) return head;
-
-  // step 1: use fast and slow pointer to move to the middle of linked list
-  // in case list is even, then move to the middle left node
+  
+  // Step 1: use a fase and slow pointer to move to the middle of the linked list
+  // in case list is even, then move to the middle left node 
+  
   let fast = head.next, slow = head;
+  // console.log('F', fast, 'S:', slow)
   while (fast && fast.next) {
-    fast = fast.next.next;
+    fast = fast.next.next; 
     slow = slow.next;
+    // console.log('WHILE:', 'F', fast, 'S:', slow)
   }
+  // Get the second half of the list
+  let secondHalf = slow.next;
 
-  // get the second half of list
-  const secondHalf = slow.next;
-
-  // break the list
-  slow.next = null;
-
-  // step 2: reverse the second half
+  // break the list 
+  slow.next = null
+  
+  // Step 2: reverse the second half 
   let curr = secondHalf, prev = null, tmp;
-
+  
   while (curr) {
     tmp = curr.next;
     curr.next = prev;
-    prev = curr;
-    curr = tmp;
+    prev = curr
+    curr = tmp
   }
-
-  // step 3: interleave the first half with second half
+  // Step 3: interweave the first half with the second half 
   let first = head, second = prev;
-  while (second) {
-    tmp = first.next;
-    first.next = second;
-    second = second.next;
-    first.next.next = tmp;
-    first = tmp;
+  
+  while (second){
+    tmp = first.next 
+    first.next = second 
+    second = second.next 
+    first.next.next = tmp
+    first = tmp  
   }
 };
