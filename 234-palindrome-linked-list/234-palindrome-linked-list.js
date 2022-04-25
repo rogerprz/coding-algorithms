@@ -31,13 +31,7 @@ var isPalindrome = function(head) {
   }
   let left = 0
   let right = array.length-1
-  // if (array.length ===2){
-  //   if (array[0] === array [1]){
-  //     return true
-  //   } else {
-  //     return false
-  //   }
-  // }
+ 
   for (let i = 0; i<= array.length/2; i++ ){
     if (array[left] !== array[right] ) {
         return false
