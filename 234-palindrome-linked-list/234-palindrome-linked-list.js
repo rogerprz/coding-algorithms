@@ -12,21 +12,25 @@
 var isPalindrome = function(head) {
   const array = []
   
-  if (head.next && !head.next.next){
-    if (!head.next){
-          return true
-    } 
-    if (head.val === head.next.val){
-      return true
-    } else {
-      return false
-    }
+  if (!head.next ){
+    return true
   }
   
   while (head){
     array.push(head.val)
     
     head = head.next
+  }
+  if (array.length < 2){
+    return true
+  }
+  if (array.length === 2){
+    if (array[0] === array[1]){
+      return true
+    }
+    else {
+      return false
+    }
   }
 
   let left = 0
