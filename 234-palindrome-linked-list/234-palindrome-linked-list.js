@@ -23,12 +23,12 @@ var isPalindrome = function(head) {
     }
   }
   
-  
   while (head){
     array.push(head.val)
     
     head = head.next
   }
+
   let left = 0
   let right = array.length-1
  
