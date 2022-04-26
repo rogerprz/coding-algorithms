@@ -22,11 +22,7 @@ var removeNthFromEnd = function(head, n) {
     slow = slow.next
     fast = fast.next
   }
-  
-  if (!fast){
-    head = head.next
-  } else {
-    slow.next = slow.next.next
-  }
+  !fast ? head = head.next :  slow.next = slow.next.next
+ 
   return head
 };
