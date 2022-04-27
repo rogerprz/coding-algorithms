@@ -20,3 +20,11 @@ Calculating nodes in a tree:
 
 number of nodes = 2^height - 1
 log nodes = height
+
+## Balance Search Tree
+
+| Pros             | Cons               |
+| ---------------- | ------------------ |
+| Better than O(n) | No O(1) operations |
+| Ordered          |                    |
+| Flexible size    |                    |
