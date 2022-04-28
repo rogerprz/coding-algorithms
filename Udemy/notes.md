@@ -49,3 +49,7 @@ Big O notation:
 - enqueue O(1)
 - dequeue O(1)
 - peek O(1)
+
+// ... 9
+// ..4 .. 20
+// 1 .6 15 170
