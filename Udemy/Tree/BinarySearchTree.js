@@ -55,53 +55,20 @@ class BinarySearchTree {
   }
 
   remove(value) {
-    if (!this.root) return null;
+    if (!this.root) return false;
 
     let currentNode = this.root;
-    let prevNode = this.root;
+    let parentNode = null;
     while (currentNode) {
       if (value < currentNode.value) {
-        prevNode = currentNode;
+        parentNode = currentNode;
         currentNode = currentNode.left;
-        if (currentNode.value === value) {
-          if (currentNode.left && currentNode.right) {
-            let replacementNode = currentNode.right;
-            prevNode.left = replacementNode;
-            prevNode.left.left = currentNode.left;
-          } else if (!currentNode.left && !currentNode.right) {
-            prevNode.left = null;
-          } else if (!currentNode.left && currentNode.right) {
-            let replacementNode = currentNode.right;
-            prevNode.left = replacementNode;
-          } else if (currentNode.left && !currentNode.right) {
-            let replacementNode = currentNode.left;
-            prevNode.left = replacementNode;
-          }
-          return this;
-        }
       } else if (value > currentNode.value) {
-        prevNode = currentNode;
+        parentNode = currentNode;
         currentNode = currentNode.right;
-
-        if (currentNode.value === value) {
-          if (currentNode.left && currentNode.right) {
-            let replacementNode = currentNode.right;
-            prevNode.right = replacementNode;
-            prevNode.right.left = currentNode.left;
-          } else if (!currentNode.left && !currentNode.right) {
-            prevNode.right = null;
-          } else if (!currentNode.left && currentNode.right) {
-            let replacementNode = currentNode.right;
-            prevNode.left = replacementNode;
-          } else if (currentNode.left && !currentNode.right) {
-            let replacementNode = currentNode.left;
-            prevNode.left = replacementNode;
-          }
-          return this;
-        }
+      } else if (value === currentNode.value) {
       }
     }
-    return null;
   }
 }
 
@@ -136,3 +103,53 @@ function traverse(node) {
 
   return tree;
 }
+
+// remove(value) {
+//   if (!this.root) return null;
+
+//   let currentNode = this.root;
+//   let prevNode = this.root;
+//   while (currentNode) {
+//     if (value < currentNode.value) {
+//       prevNode = currentNode;
+//       currentNode = currentNode.left;
+//       if (currentNode.value === value) {
+//         if (currentNode.left && currentNode.right) {
+//           let replacementNode = currentNode.right;
+//           prevNode.left = replacementNode;
+//           prevNode.left.left = currentNode.left;
+//         } else if (!currentNode.left && !currentNode.right) {
+//           prevNode.left = null;
+//         } else if (!currentNode.left && currentNode.right) {
+//           let replacementNode = currentNode.right;
+//           prevNode.left = replacementNode;
+//         } else if (currentNode.left && !currentNode.right) {
+//           let replacementNode = currentNode.left;
+//           prevNode.left = replacementNode;
+//         }
+//         return this;
+//       }
+//     } else if (value > currentNode.value) {
+//       prevNode = currentNode;
+//       currentNode = currentNode.right;
+
+//       if (currentNode.value === value) {
+//         if (currentNode.left && currentNode.right) {
+//           let replacementNode = currentNode.right;
+//           prevNode.right = replacementNode;
+//           prevNode.right.left = currentNode.left;
+//         } else if (!currentNode.left && !currentNode.right) {
+//           prevNode.right = null;
+//         } else if (!currentNode.left && currentNode.right) {
+//           let replacementNode = currentNode.right;
+//           prevNode.left = replacementNode;
+//         } else if (currentNode.left && !currentNode.right) {
+//           let replacementNode = currentNode.left;
+//           prevNode.left = replacementNode;
+//         }
+//         return this;
+//       }
+//     }
+//   }
+//   return null;
+// }
