@@ -16,20 +16,21 @@ function fibonacciRecursive(n) {
 
 const result = fibonacciRecursive(6);
 console.log(result);
-function makechange(amount, coins) {
-  let change = [];
-  let currentCoin = coins[0];
-  let currentCoinCount = 0;
-  let remainingAmount = amount;
-  while (remainingAmount > 0) {
-    if (remainingAmount >= currentCoin) {
-      currentCoinCount = Math.floor(remainingAmount / currentCoin);
-      remainingAmount = remainingAmount % currentCoin;
-    }
-    change.push([currentCoin, currentCoinCount]);
-    currentCoin = coins[coins.indexOf(currentCoin) + 1];
+function makeChangeInLeastAmountOfCoins(amount, coins) {
+  let minCoins = [];
+  for (let i = 0; i < amount; i++) {
+    minCoins[i] = Infinity;
   }
-  return change;
+  minCoins[0] = 0;
+
+  for (let i = 1; i < amount; i++) {
+    for (let j = 0; j < coins.length; j++) {
+      if (coins[j] <= i) {
+        minCoins[i] = Math.min(minCoins[i], minCoins[i - coins[j]] + 1);
+      }
+    }
+  }
+  return minCoins[amount];
 }
 
 // function optimalCoinsThatAddToTarget(target, coins) {
