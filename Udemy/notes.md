@@ -53,3 +53,21 @@ Big O notation:
 // ... 9
 // ..4 .. 20
 // 1 .6 15 170
+
+## Graphs
+
+### Types of Graphs
+
+- Directed
+  - Goes usually in one direction
+  - Twitter can follow but they don't need to follow you
+- Undirected
+  - Can go back and forth
+  - Facebook is
+- Weighted
+  - Optimal path such as maps
+- Unweighted
+- Cyclic
+  - Can go in a loop
+- Acyclic
+  - Do not go in a loop
