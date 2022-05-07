@@ -1,0 +1,8 @@
+{
+  "name": "Udemy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Roger Perez",
+  "license": "MIT",
+  "type": "module"
+}
