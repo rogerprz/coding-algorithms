@@ -6,7 +6,7 @@ class Node {
   }
 }
 
-class BinarySearchTree {
+export class BinarySearchTree {
   constructor() {
     this.root = null;
   }
@@ -70,31 +70,52 @@ class BinarySearchTree {
       }
     }
   }
+
+  breadthFirstSearch() {
+    let currentNode = this.root;
+    let list = []; // Will be our answer
+    let queue = []; // Keep track of our current level. Access children
+
+    queue.push(currentNode);
+
+    while (queue.length > 0) {
+      console.log('Q:', queue);
+      currentNode = queue.shift(); // first item in queue
+      console.log(currentNode.value);
+      list.push(currentNode.value);
+
+      if (currentNode.left) queue.push(currentNode.left);
+
+      if (currentNode.right) queue.push(currentNode.right);
+    }
+    console.log('L:', list);
+    return list;
+  }
 }
 
 const tree = new BinarySearchTree();
 //     9
 //   4    20
 // 1  6 15  170
-tree.insert(9);
-tree.insert(4);
+// tree.insert(9);
+// tree.insert(4);
 // tree.insert(6);
-tree.insert(20);
-tree.insert(1);
-tree.insert(170);
-tree.insert(180);
-tree.insert(15);
+// tree.insert(20);
+// tree.insert(1);
+// tree.insert(170);
+// tree.insert(180);
+// tree.insert(15);
 
-console.log('T:', tree);
+// console.log('TTT:', tree);
 // const treeStr = JSON.stringify(traverse(tree.root));
 // console.log('JSON:', treeStr);
-const isHere = tree.lookup(16);
+// const isHere = tree.lookup(16);
 
-tree.remove(4);
-const treeStr = JSON.stringify(traverse(tree.root));
-console.log('JSON:', treeStr);
-console.log('RRR:', tree);
-console.log('HH:', isHere);
+// tree.remove(4);
+// const treeStr = JSON.stringify(traverse(tree.root));
+// console.log('JSON:', treeStr);
+// console.log('RRR:', tree);
+// console.log('HH:', isHere);
 
 function traverse(node) {
   const tree = { value: node.value };
