@@ -1,2 +1,3 @@
-# coding-algorithims
+# coding-algorithms
+
 Files with practice algorithms.
