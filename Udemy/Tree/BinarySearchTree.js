@@ -79,7 +79,7 @@ export class BinarySearchTree {
     queue.push(currentNode);
 
     while (queue.length > 0) {
-      console.log('Q:', queue);
+      // console.log('Q:', queue);
       currentNode = queue.shift(); // first item in queue
       console.log(currentNode.value);
       list.push(currentNode.value);
@@ -91,9 +91,22 @@ export class BinarySearchTree {
     console.log('L:', list);
     return list;
   }
+
+  breadthFirstSearchRecursive(queue, list) {
+    if (!queue.length) return list;
+
+    let currentNode = queue.shift();
+
+    list.push(currentNode.value);
+
+    if (currentNode.left) queue.push(currentNode.left);
+    if (currentNode.right) queue.push(currentNode.right);
+
+    return this.breadthFirstSearch(queue, list);
+  }
 }
 
-const tree = new BinarySearchTree();
+// const tree = new BinarySearchTree();
 //     9
 //   4    20
 // 1  6 15  170
