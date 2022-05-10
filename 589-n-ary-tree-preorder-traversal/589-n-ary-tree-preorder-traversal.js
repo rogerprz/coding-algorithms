@@ -18,8 +18,8 @@ var preorder = function(root) {
     
     list.push(node.val)
 
-    for (child in node.children) {
-      traverseTree(node.children[child], list)
+    for (child of node.children) {
+      traverseTree(child, list)
     }
     
     return list
