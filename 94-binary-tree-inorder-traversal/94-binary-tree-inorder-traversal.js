@@ -11,9 +11,7 @@
  * @return {number[]}
  */
 var inorderTraversal = function(root) {
-  
-  let list = []
-    return traverseTree(root, list)
+  return traverseTree(root, [])
   
   function traverseTree(root, list){
     let currentNode = root
