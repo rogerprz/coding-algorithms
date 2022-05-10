@@ -17,9 +17,9 @@ var postorder = function(root) {
     if (!node) return list
 
    for(child of node.children) {
-            traverseTree(child, list);
-        }
-        list.push(node.val);
+     traverseTree(child, list);
+    }
+    list.push(node.val);
     
     return list
   }
