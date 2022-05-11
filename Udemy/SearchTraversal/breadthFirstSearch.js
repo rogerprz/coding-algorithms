@@ -1,9 +1,38 @@
 import { BinarySearchTree } from '../Tree/BinarySearchTree.js';
 
 class BFS extends BinarySearchTree {
-  bfsTest() {}
+  bfsTest() {
+    let currentNode = this.root;
 
-  bfsRecursive(queue, list) {}
+    let queue = [];
+    let list = [];
+
+    // console.log(currentNode);
+    queue.push(currentNode);
+
+    while (queue.length > 0) {
+      currentNode = queue.shift();
+      list.push(currentNode.value);
+
+      if (currentNode.left) queue.push(currentNode.left);
+      if (currentNode.right) queue.push(currentNode.right);
+    }
+
+    return list;
+  }
+
+  bfsRecursive(queue, list) {
+    if (!queue.length) return list;
+
+    let currentNode = queue.shift();
+
+    list.push(currentNode.value);
+
+    if (currentNode.left) queue.push(currentNode.left);
+    if (currentNode.right) queue.push(currentNode.right);
+
+    return this.bfsRecursive(queue, list);
+  }
 
   DFSInOrder() {
     return this.traverseInOrder(this.root, []);
@@ -37,8 +66,8 @@ tree.insert(170);
 tree.insert(15);
 tree.insert(1);
 
-// tree.bfsTest();
-// console.log('R:', tree.bfsRecursive([tree.root], []));
-console.log(tree.DFSInOrder(tree.root, []));
-console.log(tree.DFSPreOrder(tree.root, []));
-console.log(tree.DFSPostOrder(tree.root, []));
+console.log(tree.bfsTest());
+console.log('R:', tree.bfsRecursive([tree.root], []));
+// console.log(tree.DFSInOrder(tree.root, []));
+// console.log(tree.DFSPreOrder(tree.root, []));
+// console.log(tree.DFSPostOrder(tree.root, []));
