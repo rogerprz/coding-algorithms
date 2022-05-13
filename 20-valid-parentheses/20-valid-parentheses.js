@@ -7,7 +7,11 @@ var isValid = function(s) {
   if (arr.length <= 1) return false
   
   let stack = [];
-  let obj = { "{": "}", "[": "]", "(": ")"}
+  let obj = {
+    "{": "}", 
+    "[": "]", 
+    "(": ")"
+  }
   let keys = Object.keys(obj)
   let values = Object.values(obj)
   
