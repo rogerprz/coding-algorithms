@@ -22,7 +22,7 @@ var isValid = function(s) {
     if (keys.includes(elem)){
       stack.push(elem)
     } 
-    if (values.includes(elem)){
+    else {
       
       if (obj[stack.pop()] !== elem) return false
     }
