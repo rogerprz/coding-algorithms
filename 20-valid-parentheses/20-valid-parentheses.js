@@ -13,7 +13,6 @@ var isValid = function(s) {
     "(": ")"
   }
   let keys = ["{", "[", "("]
-  let values = ["}", "]", ")"]
   
   
   for (let i = 0; i< arr.length; i++){
