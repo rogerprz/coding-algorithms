@@ -12,8 +12,8 @@ var isValid = function(s) {
     "[": "]", 
     "(": ")"
   }
-  let keys = Object.keys(obj)
-  let values = Object.values(obj)
+  let keys = ["{", "[", "("]
+  let values = ["}", "]", ")"]
   
   
   for (let i = 0; i< arr.length; i++){
