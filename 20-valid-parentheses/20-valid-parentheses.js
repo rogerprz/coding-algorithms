@@ -23,9 +23,8 @@ var isValid = function(s) {
       stack.push(elem)
     } 
     if (values.includes(elem)){
-      let stackKey = stack.pop()
       
-      if (obj[stackKey] !== elem) return false
+      if (obj[stack.pop()] !== elem) return false
     }
   }
 return stack.length === 0
