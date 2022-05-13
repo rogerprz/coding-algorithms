@@ -3,8 +3,8 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-  let arr = s.split("")
-  if (arr.length <= 1) return false
+
+  if (s.length <= 1) return false
   
   let stack = [];
   let obj = {
@@ -14,15 +14,13 @@ var isValid = function(s) {
   }
   let keys = ["{", "[", "("]
   
-  
-  for (let i = 0; i< arr.length; i++){
-    const elem = arr[i]
+  for (let i = 0; i< s.length; i++){
+    const elem = s[i]
     
     if (keys.includes(elem)){
       stack.push(elem)
     } 
     else {
-      
       if (obj[stack.pop()] !== elem) return false
     }
   }
