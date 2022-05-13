@@ -3,7 +3,6 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-
   if (s.length <= 1) return false
   
   let stack = [];
