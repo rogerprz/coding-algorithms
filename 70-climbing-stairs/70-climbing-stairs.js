@@ -3,15 +3,19 @@
  * @return {number}
  */
 var climbStairs = function(n) {
-  if (n <= 2) return n
-
-  var arr = [0,1,2]
-  for(let i = 3; i <= n; i++) {
-    arr[i] = arr[i-1] + arr[i-2];
-  }
-  return arr[n];
-};
-
+ let first = 0;
+    let second = 1;
+    let temp;
+    let i = 0;
+    while(i < n) {
+        temp = first + second; 
+        first = second;
+        second = temp;
+        i++;
+    }
+    return second;
+}
+// MY OWN ANSWER
 // var climbStairs = function(n) {
 //     let a = 1, b = 2, next;
     
@@ -23,7 +27,18 @@ var climbStairs = function(n) {
 //     return n === 1 ? a : b;
 // };
 
+// var climbStairs = function(n) {
+//  if (n <= 2) return n 
+  
+//   let answer = [1, 2]
+  
+//   for (let i = 2; i < n; i++){
+//     console.log('i',i, 'n:', n, 'A:', answer )
+//     answer.push(answer[i - 2] + answer[i - 1])
+//   }
+//   return answer.pop()
 
+// };
 /* 
 1 -> 1
 2 -> 2 (1+1 | 2+0)
@@ -43,3 +58,31 @@ Each next amount of steps equals to sum of previous 2
 //   }
 //   return b;
 // };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  if (n <= 2) return n
+
+//   var arr = [0,1,2]
+//   for(let i = 3; i <= n; i++) {
+//     arr[i] = arr[i-1] + arr[i-2];
+//   }
+//   return arr[n];
