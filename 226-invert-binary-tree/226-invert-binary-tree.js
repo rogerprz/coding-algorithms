@@ -18,7 +18,6 @@ var invertTree = function(root) {
   
   [root.left, root.right] = [invertTree(root.right), invertTree(root.left)];
   
-  console.log('H:', [root.left, root.right])
   return root;
 }
 
