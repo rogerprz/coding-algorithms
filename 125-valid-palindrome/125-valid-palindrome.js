@@ -3,17 +3,14 @@
  * @return {boolean}
  */
 var isPalindrome = function(s) {
-  let testStr = s.toLowerCase().replace(/[\W_]/g, '')
-  console.log('T:', testStr)
-  let mid = Math.floor(testStr.length/2)
-  console.log("M:", mid, 'S:', testStr.length)
+  let str = s.toLowerCase().replace(/[\W_]/g, '')
+  let mid = Math.floor(str.length/2)
+  
+
   for (let i = 0; i < mid; i++){
-    let right = testStr.length - 1 - i
-    console.log('R:', right, testStr[i], testStr[right])
-    if (testStr[i] !== testStr[right]){
-      return false
-    }
-    
+    let right = str.length - 1 - i
+
+    if (str[i] !== str[right]) return false
   }
   
   return true
