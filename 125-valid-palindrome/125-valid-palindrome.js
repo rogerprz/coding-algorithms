@@ -3,11 +3,18 @@
  * @return {boolean}
  */
 var isPalindrome = function(s) {
-  s = s.toLowerCase()
-  regex = /[\W_]/g
-  let testStr = s.replace(regex, '')
-  console.log('S:', testStr)
+  let testStr = s.toLowerCase().replace(/[\W_]/g, '')
+  console.log('T:', testStr)
+  let mid = Math.floor(testStr.length/2)
+  console.log("M:", mid, 'S:', testStr.length)
+  for (let i = 0; i < mid; i++){
+    let right = testStr.length - 1 - i
+    console.log('R:', right, testStr[i], testStr[right])
+    if (testStr[i] !== testStr[right]){
+      return false
+    }
+    
+  }
   
-  
-  return testStr === testStr.split("").reverse().join("")
+  return true
 };
