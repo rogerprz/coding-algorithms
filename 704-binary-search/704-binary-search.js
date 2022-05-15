@@ -13,13 +13,10 @@ var search = function(nums, target) {
       console.log('L:', l , 'R:', r, 'M:', m, 'C:', count)
       console.log('V:',nums[m], '==',target )
 
-      if (target === nums[m]){
-        return m
-      }
+      if (target === nums[m]) return m
       if (nums[m] < target){
         l = m + 1
-      } 
-      if (target < nums[m]){
+      } else {
         r = m - 1
       }
     }
