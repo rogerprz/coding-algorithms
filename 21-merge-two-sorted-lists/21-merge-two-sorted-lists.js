@@ -33,8 +33,5 @@ var mergeTwoLists = function(l1, l2) {
     list = list.next
   }
   
-  // if (l1 !== null) list.next = l1
-  // if (l2 !== null ) list.next = l2
-  
   return head.next
 };
