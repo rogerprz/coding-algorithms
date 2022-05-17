@@ -102,7 +102,7 @@ export class BinarySearchTree {
     if (currentNode.left) queue.push(currentNode.left);
     if (currentNode.right) queue.push(currentNode.right);
 
-    return this.breadthFirstSearch(queue, list);
+    return this.breadthFirstSearchRecursive(queue, list);
   }
 
   DFSInOrder() {
