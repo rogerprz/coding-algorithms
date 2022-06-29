@@ -18,10 +18,10 @@ var solution = function(isBadVersion) {
      * @return {integer} The first bad version
      */
     return function(n) {
-      let start = 1 
-      let end = n 
+      let start = 1, end = n 
     
       while (start < end ){
+        console.log('S:', start, 'E:', end, 'R:', start-end, Math.floor(start+(start-end)/2))
         let mid = Math.floor(start + (end-start) / 2)
         console.log('M:', mid)
         
