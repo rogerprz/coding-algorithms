@@ -22,11 +22,9 @@ var solution = function(isBadVersion) {
     
       while (start < end ){
         let mid = Math.floor(start + (end-start) / 2)
-        console.log('M:', mid)
         
         if (isBadVersion(mid)){
           end = mid 
-          
         } else {
           start = mid + 1
         }
