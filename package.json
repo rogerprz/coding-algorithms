@@ -1,0 +1,11 @@
+{
+  "name": "coding-algorithms",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Roger Perez",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "node-fetch": "^3.2.4"
+  }
+}
