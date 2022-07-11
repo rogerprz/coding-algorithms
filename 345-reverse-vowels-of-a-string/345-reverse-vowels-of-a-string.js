@@ -10,19 +10,13 @@ var reverseVowels = function(s) {
   while (l < r ) {
     console.log('L:', l, 'R:', r)
     if (vowels.includes(arr[l]) && vowels.includes(arr[r])) {
-      console.log('HERE')
-      // [arr[l], arr[r]] = [arr[r], arr[l]];
       let temp = arr[l]
       arr[l] = arr[r]
       arr[r] = temp
       l++, r--
     }
-    if (!vowels.includes(arr[l])){
-      l++
-    }
-    else if (!vowels.includes(arr[r])){
-      r--
-    }
+    if (!vowels.includes(arr[l]))  l++
+    if (!vowels.includes(arr[r])) r--
   }
   return arr.join('')
 };
