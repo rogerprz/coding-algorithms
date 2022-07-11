@@ -10,6 +10,7 @@
  * @param {number} n
  * @return {ListNode}
  */
+// NEED TO REDO ANSWER
 var removeNthFromEnd = function(head, n) {
    let slow = head 
    let fast = head 
