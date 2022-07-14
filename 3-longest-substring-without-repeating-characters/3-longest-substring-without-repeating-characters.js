@@ -5,8 +5,7 @@
 
 // OLD SOLUTION 
 var lengthOfLongestSubstring = function(s) {
-  let result = []
-  let max_str = 0
+  let result = [], max_str = 0
     
     s.split("").forEach((str)=>{
         if (result.includes(str)){
