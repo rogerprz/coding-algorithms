@@ -15,10 +15,7 @@ var validMountainArray = function(arr) {
     let start = arr[p1], next = arr[p2] // Start: 0, 3 Next: 3, 2
     console.log('I:',i, 'S:', start, 'N:', next)
 
-    if (i > 0 && isGoingUp && start > next) {
-      console.log('S:', start, 'N:', next)
-      isGoingUp = false
-    }
+    if (i > 0 && isGoingUp && start > next) isGoingUp = false
     if (start === next ) return false // 
     if ((start < next && isGoingUp) || start > next && !isGoingUp) { // 
       p1++
