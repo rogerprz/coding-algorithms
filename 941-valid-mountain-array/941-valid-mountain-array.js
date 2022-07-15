@@ -20,15 +20,11 @@ var validMountainArray = function(arr) {
       isGoingUp = false
     }
     if (start === next ) return false // 
-    if (start < next && isGoingUp) { // 
+    if ((start < next && isGoingUp) || start > next && !isGoingUp) { // 
       p1++
       p2++
     }
-    else if (start > next && !isGoingUp) {
-      console.log('HERE:', start, next)
-      p1++
-      p2++
-    } 
+
     else {
       return false
     }
