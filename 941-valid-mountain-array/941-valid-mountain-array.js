@@ -6,7 +6,6 @@ var validMountainArray = function(arr) {
   if (arr.length < 3) return false
 
   let isGoingUp = true
-  let p1 = 0, p2 = 1
   
   for (let i = 0; i < arr.length - 1; i++) {
     let start = arr[i], next = arr[i+1]
@@ -17,8 +16,6 @@ var validMountainArray = function(arr) {
     if (start === next ) return false // 
 //  If we are going up the mountain isGoingUp = true, when we start going down we switch it to false
     else if ((start < next && isGoingUp) || start > next && !isGoingUp) { // 
-      p1++
-      p2++
     }
     else {
       return false
