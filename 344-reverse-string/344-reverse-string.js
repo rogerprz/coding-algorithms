@@ -6,9 +6,8 @@ var reverseString = function(s) {
     let l = 0, r = s.length - 1
     
     while (l < r ) {
-      let temp = s[l]
-      s[l] = s[r]
-      s[r] = temp
+      [s[l],s[r] ] = [s[r], s[l]]
+
       r--, l++
     }
   return s
