@@ -9,7 +9,7 @@ var validMountainArray = function(arr) {
   let p1 = 0, p2 = 1
   
   for (let i = 0; i < arr.length - 1; i++) {
-    let start = arr[p1], next = arr[p2]
+    let start = arr[i], next = arr[i+1]
     
 //     Peek has been reached and we need to start going down
     if (i > 0 && isGoingUp && start > next) isGoingUp = false
