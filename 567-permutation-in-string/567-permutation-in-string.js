@@ -23,9 +23,7 @@ var checkInclusion = function (pattern, str) {
 
     if (rightChar in charFreq) {
       charFreq[rightChar]--;
-      if (!charFreq[rightChar]) {
-        matched += 1;
-      }
+      if (!charFreq[rightChar]) matched ++;
     }
 
     if (matched === Object.keys(charFreq).length) {
@@ -34,6 +32,7 @@ var checkInclusion = function (pattern, str) {
 
     if (windowEnd >= pattern.length - 1) {
       let leftChar = str[windowStart];
+      
       windowStart += 1;
       if (leftChar in charFreq) {
         if (!charFreq[leftChar])  matched --;
