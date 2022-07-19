@@ -13,12 +13,8 @@ var generate = function(numRows) {
   let result = []
   
   for (let i = 0; i < numRows; i++) {
-    if (i === 0) {
-      result.push([1])
-    }
-    else if (i === 1) {
-      result.push([1, 1])
-    }
+    if (i === 0) result.push([1])
+    else if (i === 1) result.push([1, 1])
     else {
       let currentArray = [1] // 1 3 3
       let lastArr = result[result.length-1] // last array in result
