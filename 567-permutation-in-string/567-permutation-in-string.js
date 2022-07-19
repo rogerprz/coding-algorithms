@@ -11,6 +11,7 @@ var checkInclusion = function (pattern, str) {
 
   for (let i = 0; i < pattern.length; i++) {
     let char = pattern[i];
+    
     if (char in charFreq) {
       charFreq[char]++;
     } else {
