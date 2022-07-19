@@ -36,7 +36,7 @@ var checkInclusion = function (pattern, str) {
       let leftChar = str[windowStart];
       windowStart += 1;
       if (leftChar in charFreq) {
-        if (charFreq[leftChar] === 0) {
+        if (!charFreq[leftChar]) {
           matched -= 1;
         }
         charFreq[leftChar] += 1;
