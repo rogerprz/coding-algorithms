@@ -23,7 +23,7 @@ var checkInclusion = function (pattern, str) {
 
     if (rightChar in charFreq) {
       charFreq[rightChar]--;
-      if (charFreq[rightChar] === 0) {
+      if (!charFreq[rightChar]) {
         matched += 1;
       }
     }
