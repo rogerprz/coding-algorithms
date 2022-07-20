@@ -23,10 +23,8 @@ var removeNthFromEnd = function(head, n) {
   if (!nodeIndex) return head.next
   
   while (nodeIndex > 0) {
-    console.log('NODE:', node.val)
-      if (nodeIndex === 1) {
-        node.next = node.next.next
-      }
+    if (nodeIndex === 1) node.next = node.next.next
+    
     node = node.next
     nodeIndex--
   }
