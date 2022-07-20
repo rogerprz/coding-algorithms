@@ -9,13 +9,18 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var middleNode = function(head) { 
-    let slow = head
-    let fast = head
-    
+var middleNode = function(head) {
+    let slow = head 
+    let fast = head 
+//     We want to set a fast and slow pointer
+//     Fast moves twice as fast 
+//     
     while (fast && fast.next) {
       slow = slow.next
       fast = fast.next.next
     }
-  return slow
+  
+  head = slow 
+  
+  return head
 };
