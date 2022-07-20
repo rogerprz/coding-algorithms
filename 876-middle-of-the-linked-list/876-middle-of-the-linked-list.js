@@ -10,7 +10,7 @@
  * @return {ListNode}
  */
 var middleNode = function(head) {
-    let slow = fast = head 
+    let fast = slow = head 
 //     We want to set a fast and slow pointer
 //     Fast moves twice as fast 
 //     
