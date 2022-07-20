@@ -20,11 +20,8 @@ var removeNthFromEnd = function(head, n) {
   }
   let nodeIndex = count - n;
   
-  if (!nodeIndex){
-    head.next
-    console.log('HERE:', head.next)
-    return head.next
-  }
+  if (!nodeIndex) return head.next
+  
   while (nodeIndex > 0) {
     console.log('NODE:', node.val)
       if (nodeIndex === 1) {
