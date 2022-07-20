@@ -10,25 +10,24 @@
  * @param {number} n
  * @return {ListNode}
  */
-// NEED TO REDO ANSWER
 var removeNthFromEnd = function(head, n) {
-   let slow = head 
-   let fast = head 
-   
-   while(n--){
-     fast = fast.next
+    let node = head, count = 0;
+  let nodeCount = node
+  
+  while ( nodeCount) {
+    nodeCount = nodeCount.next
+    count++
+  }
+  let nodeIndex = count - n;
+  
+  if (!nodeIndex) return head.next
+  
+  while (nodeIndex > 0) {
+    if (nodeIndex === 1) node.next = node.next.next
     
-   }
-  
-  while (fast && fast.next ){
-    slow = slow.next
-    fast = fast.next
+    node = node.next
+    nodeIndex--
   }
-  
-  if (!fast){
-    head = head.next
-  } else {
-    slow.next = slow.next.next
-  }
+  console.log('H:', head)
   return head
 };
