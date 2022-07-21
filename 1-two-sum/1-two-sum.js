@@ -4,17 +4,20 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-  // nums = [2,7,11,15], target = 9
-    let hash = {}
-    
-    for (let i = 0; i < nums.length; i++) {
-      let number = nums[i]
-      let testKey = target - nums[i]
-      
-      if (testKey in hash){
-        return [hash[testKey], i]
-      } else {
-        hash[number] = i
-      }
+    for(let i = 0; i < nums.length-1; i++){
+        let currNum = nums[i]
+        
+        let up_nums = nums.slice(i+1)
+        console.log('Curr:', currNum, 'INDEX:', i, 'T:', target)
+        console.log('UN:', up_nums)
+        
+        const secNum = up_nums.indexOf(target - nums[i])
+        console.log('SecNum:', secNum)
+        
+        if (secNum > -1){
+            let changeIndex = secNum + i
+            return [i, changeIndex + 1]
+        }
     }
+
 };
