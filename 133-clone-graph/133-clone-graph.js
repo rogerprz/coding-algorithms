@@ -11,17 +11,25 @@
  * @return {Node}
  */
 var cloneGraph = function(node) {
-  let map = {}
+  if(!node) return 
+
+  let map = new Map()
+  let newGraph = new Node()
   
-  return traverseGraph(node)
+  const queue = [node]
   
-  function traverseGraph(node){
-    if (!node) return node
+  map.set(node, new Node(node.val));
+  
+  while (queue.length) {
+    const currentNode = queue.shift();
     
-    if (!map[node.val]){
-      map[node.val] = new Node(node.val)
-      map[node.val].neighbors = node.neighbors.map(neighbor => traverseGraph(neighbor))
+    for (let neighbor of currentNode.neighbors) {
+      if (!map.has(neighbor)) {
+        map.set(neighbor, new Node(neighbor.val))
+        queue.push(neighbor);
+      }
+      map.get(currentNode).neighbors.push(map.get(neighbor));
     }
-    return map[node.val];
   }
+  return map.get(node);
 };
