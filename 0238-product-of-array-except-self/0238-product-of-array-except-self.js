@@ -9,8 +9,8 @@ var productExceptSelf = function(nums) {
   // Calculate the product of elements before the current index
   let productBefore = 1;
   for (let i = 0; i < length; i++) {
-    result[i] *= productBefore;
-    productBefore *= nums[i];
+    result[i] = result[i]*productBefore;   // result[i] *= productBefore;
+    productBefore = productBefore*nums[i]; // productBefore *= nums[i];
   }
 
   // Calculate the product of elements after the current index
