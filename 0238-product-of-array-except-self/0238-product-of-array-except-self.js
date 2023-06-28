@@ -5,9 +5,7 @@
 var productExceptSelf = function(nums) {
     // this a prefix and post fix algorithm
     // create a results array and fill it with 1 *nums.length
-    const getArray = new Array(nums.length)
-    let result = getArray.fill(1)
-    console.log('RES:', result)
+    const result = new Array(nums.length).fill(1);
     let prefixNum = 1
     // we need to create a prefix and set it to 1.
     // [1][1,2,3,4]
