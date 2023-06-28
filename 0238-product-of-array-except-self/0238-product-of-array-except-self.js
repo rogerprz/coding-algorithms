@@ -3,22 +3,32 @@
  * @return {number[]}
  */
 var productExceptSelf = function(nums) {
-  const length = nums.length;
-  const result = new Array(length).fill(1);
+    // this a prefix and post fix algorithm
+    // create a results array and fill it with 1 *nums.length
+    const getArray = new Array(nums.length)
+    let result = getArray.fill(1)
+    console.log('RES:', result)
+    let prefixNum = 1
+    // we need to create a prefix and set it to 1.
+    // [1][1,2,3,4]
+    // loop through array where we set and multiple result[i] = result[i]*prefix
+    for (let i = 0; i<nums.length;i++) {
+    // prefix num = prefix num* currentNum
+      result[i] = result[i]*prefixNum
+      prefixNum = prefixNum*nums[i]
+    }
 
-  // Calculate the product of elements before the current index
-  let productBefore = 1;
-  for (let i = 0; i < length; i++) {
-    result[i] *= productBefore;   // result[i] *= productBefore;
-    productBefore *=nums[i]; // productBefore *= nums[i];
-  }
+    // we create a postfix == 1
+    let postNum = 1
+    for (let i = nums.length-1; i >= 0;i--){
+      result[i] = result[i]*postNum
+      postNum = postNum*nums[i]
+    }
 
-  // Calculate the product of elements after the current index
-  let productAfter = 1;
-  for (let i = length - 1; i >= 0; i--) {
-    result[i] *= productAfter;
-    productAfter *= nums[i];
-  }
 
-  return result;
+
+    // we do the same as initial loop except we start from top and go to bottom. 
+    // [1,2,3,4][1]
+    return result
+
 };
