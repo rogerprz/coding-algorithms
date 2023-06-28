@@ -4,7 +4,6 @@ module.exports = {
     es2021: true
   },
   extends: ['plugin:react/recommended', 'airbnb'],
-  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -12,6 +11,13 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  plugins: ['react', '@typescript-eslint', 'prettier'],
-  rules: {}
+  plugins: ['react'],
+  rules: {
+    'comma-dangle': 'off',
+    'no-empty-function': 'error',
+    'no-unused-vars': 'error',
+    quotes: ['error', 'single', { avoidEscape: true }],
+    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
+    'func-names': 'off'
+  }
 };
