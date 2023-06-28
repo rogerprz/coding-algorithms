@@ -14,21 +14,17 @@ var productExceptSelf = function(nums) {
     // loop through array where we set and multiple result[i] = result[i]*prefix
     for (let i = 0; i<nums.length;i++) {
     // prefix num = prefix num* currentNum
-      result[i] = result[i]*prefixNum
-      prefixNum = prefixNum*nums[i]
+      result[i] *= prefixNum
+      prefixNum *=nums[i]
     }
-
     // we create a postfix == 1
     let postNum = 1
-    for (let i = nums.length-1; i >= 0;i--){
-      result[i] = result[i]*postNum
-      postNum = postNum*nums[i]
-    }
-
-
-
     // we do the same as initial loop except we start from top and go to bottom. 
     // [1,2,3,4][1]
+    for (let i = nums.length-1; i >= 0;i--){
+      result[i] *=postNum
+      postNum *=nums[i]
+    }
     return result
 
 };
