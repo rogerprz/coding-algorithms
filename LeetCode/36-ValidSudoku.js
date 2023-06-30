@@ -1,44 +1,33 @@
 const isValidSudoku = function (board) {
-  const verticalMap = {};
-  let horizontalMap = {};
-  let isValid = true;
-  let containsNumber = false;
+  const rows = new Set();
+  const cols = new Set();
+  const boxes = new Set();
+  let curRowElem;
+  let curColElem;
+  let curBoxElem;
 
-  for (let vertIndex = 0; vertIndex < board.length; vertIndex++) {
-    if (!isValid) return isValid;
-    const currArray = board[vertIndex];
-    horizontalMap = {};
+  for (let i = 0; i < board.length; i += 1) {
+    for (let j = 0; j < board[0].length; j += 1) {
+      curRowElem = board[i][j];
+      curColElem = board[j][i];
+      curBoxElem = board[3 * Math.floor(i / 3) + Math.floor(j / 3)][((i * 3) % 9) + (j % 3)];
 
-    for (let horIndex = 0; horIndex < currArray.length; horIndex++) {
-      const currentNum = currArray[horIndex];
+      if (rows.has(curRowElem)) return false;
+      if (curRowElem !== '.') rows.add(curRowElem);
 
-      if (currentNum !== '.') {
-        containsNumber = true;
-        const isHorizontal = horizontalMap[horIndex] === currentNum;
-        if (isHorizontal) {
-          isValid = false;
-          return isValid;
-        }
-        horizontalMap[currentNum] = true;
+      if (cols.has(curColElem)) return false;
+      if (curColElem !== '.') cols.add(curColElem);
 
-        const verticalArray = verticalMap[horIndex];
-        if (verticalArray && verticalArray.includes(currentNum)) {
-          isValid = false;
-          return isValid;
-        }
-        if (horIndex in verticalMap) {
-          verticalMap[horIndex].push(currentNum);
-        } else {
-          verticalMap[horIndex] = [];
-          verticalMap[horIndex].push(currentNum);
-        }
-      }
+      if (boxes.has(curBoxElem)) return false;
+      if (curBoxElem !== '.') boxes.add(curBoxElem);
     }
-  }
-  if (!containsNumber) return containsNumber;
-  if (containsNumber) return true;
 
-  return isValid;
+    rows.clear();
+    cols.clear();
+    boxes.clear();
+  }
+
+  return true;
 };
 
 const board = [
@@ -77,6 +66,6 @@ const boardThree = [
   ['.', '.', '.', '.', '.', '.', '.', '.', '.']
 ];
 
-isValidSudoku(board);
+console.log('1:', isValidSudoku(board));
 console.log('2:', isValidSudoku(boardTwo));
 console.log('3:', isValidSudoku(boardThree));
