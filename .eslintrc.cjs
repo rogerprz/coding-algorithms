@@ -19,6 +19,7 @@ module.exports = {
     quotes: ['error', 'single', { avoidEscape: true }],
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
     'func-names': 'off',
+    'no-console': 'off',
     'max-len': [
       'warn',
       {
