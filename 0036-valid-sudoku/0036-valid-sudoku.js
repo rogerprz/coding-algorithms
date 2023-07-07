@@ -3,10 +3,12 @@
  * @return {boolean}
  */
 var isValidSudoku = function(board) {
-  for (let i = 0; i < 9; i++) {
-    let row = new Set(),
+  let row = new Set(),
         col = new Set(),
         box = new Set();
+
+  for (let i = 0; i < 9; i++) {
+   
 
     for (let j = 0; j < 9; j++) {
       let _row = board[i][j];
@@ -27,6 +29,9 @@ var isValidSudoku = function(board) {
         box.add(_box);
       } 
     }
+    row.clear();
+    col.clear();
+    box.clear()
   }
   return true
 };
