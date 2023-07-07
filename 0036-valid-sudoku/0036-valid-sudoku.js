@@ -2,34 +2,31 @@
  * @param {character[][]} board
  * @return {boolean}
  */
-const isValidSudoku = function (board) {
-  const rows = new Set();
-  const cols = new Set();
-  const boxes = new Set();
-  let curRowElem;
-  let curColElem;
-  let curBoxElem;
+var isValidSudoku = function(board) {
+  for (let i = 0; i < 9; i++) {
+    let row = new Set(),
+        col = new Set(),
+        box = new Set();
 
-  for (let i = 0; i < board.length; i += 1) {
-    for (let j = 0; j < board[0].length; j += 1) {
-      curRowElem = board[i][j];
-      curColElem = board[j][i];
-      curBoxElem = board[3 * Math.floor(i / 3) + Math.floor(j / 3)][((i * 3) % 9) + (j % 3)];
-
-      if (rows.has(curRowElem)) return false;
-      if (curRowElem !== '.') rows.add(curRowElem);
-
-      if (cols.has(curColElem)) return false;
-      if (curColElem !== '.') cols.add(curColElem);
-
-      if (boxes.has(curBoxElem)) return false;
-      if (curBoxElem !== '.') boxes.add(curBoxElem);
+    for (let j = 0; j < 9; j++) {
+      let _row = board[i][j];
+      let _col = board[j][i];
+      let _box = board[3*Math.floor(i/3)+Math.floor(j/3)][3*(i%3)+(j%3)]
+      
+      if (_row != '.') {
+        if (row.has(_row)) return false;
+        row.add(_row);
+      }
+      if (_col != '.') {
+        if (col.has(_col)) return false;
+        col.add(_col);
+      }
+      
+      if (_box != '.') {
+        if (box.has(_box)) return false;
+        box.add(_box);
+      } 
     }
-
-    rows.clear();
-    cols.clear();
-    boxes.clear();
   }
-
-  return true;
+  return true
 };
