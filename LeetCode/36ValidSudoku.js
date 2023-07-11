@@ -5,28 +5,27 @@ export const isValidSudoku = function (board) {
       box = new Set();
 
     for (let j = 0; j < 9; j++) {
-      let _row = board[i][j];
-      let _col = board[j][i];
-      let _box = board[3 * Math.floor(i / 3) + Math.floor(j / 3)][3 * (i % 3) + (j % 3)];
+      let currentRow = board[i][j];
+      let currentCol = board[j][i];
+      let currentBox = board[3 * Math.floor(i / 3) + Math.floor(j / 3)][3 * (i % 3) + (j % 3)];
 
-      if (_row != '.') {
-        if (row.has(_row)) return false;
-        row.add(_row);
+      if (currentRow != '.') {
+        if (row.has(currentRow)) return false;
+        row.add(currentRow);
       }
-      if (_col != '.') {
-        if (col.has(_col)) return false;
-        col.add(_col);
+      if (currentCol != '.') {
+        if (col.has(currentCol)) return false;
+        col.add(currentCol);
       }
 
-      if (_box != '.') {
-        if (box.has(_box)) return false;
-        box.add(_box);
+      if (currentBox != '.') {
+        if (box.has(currentBox)) return false;
+        box.add(currentBox);
       }
     }
   }
   return true;
 };
-
 export const board = [
   ['5', '3', '.', '.', '7', '.', '.', '.', '.'],
   ['6', '.', '.', '1', '9', '5', '.', '.', '.'],
