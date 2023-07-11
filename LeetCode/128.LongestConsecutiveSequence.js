@@ -13,6 +13,8 @@ const longestConsecutive = function (nums) {
     if (testPointer === currentNum) {
       rightIndex = i;
       previousPointer = currentNum;
+    } else if (previousPointer == currentNum) {
+      leftIndex = i + 1;
     } else {
       leftIndex = i;
     }
