@@ -1,32 +1,31 @@
 const isValidSudoku = function (board) {
-  const rows = new Set();
-  const cols = new Set();
-  const boxes = new Set();
-  let curRowElem;
-  let curColElem;
-  let curBoxElem;
+  // we need to create a set to find if row has repeating value
+  // we need to create a set to save column values
+  // we need to get a set so we can detect box.
 
-  for (let i = 0; i < board.length; i += 1) {
-    for (let j = 0; j < board[0].length; j += 1) {
-      curRowElem = board[i][j];
-      curColElem = board[j][i];
-      curBoxElem = board[3 * Math.floor(i / 3) + Math.floor(j / 3)][((i * 3) % 9) + (j % 3)];
+  // loop through first array
+  for (let i = 0; i < board.length; i++) {
+    const row = new Set();
+    const col = new Set();
+    const box = new Set();
+    for (let j = 0; j < board[i].length; j++) {
+      const currRowElem = board[i][j];
+      const currColElem = board[j][i];
 
-      if (rows.has(curRowElem)) return false;
-      if (curRowElem !== '.') rows.add(curRowElem);
+      const xIndex = 3 * Math.floor(i / 3) + Math.floor(j / 3);
+      const yIndex = ((i * 3) % 9) + (j % 3);
+      console.log('X:', xIndex, 'Y:', yIndex);
+      const currBoxElem = board[xIndex][yIndex];
 
-      if (cols.has(curColElem)) return false;
-      if (curColElem !== '.') cols.add(curColElem);
+      if (row.has(currRowElem)) return false;
+      if (col.has(currColElem)) return false;
+      if (box.has(currBoxElem)) return false;
 
-      if (boxes.has(curBoxElem)) return false;
-      if (curBoxElem !== '.') boxes.add(curBoxElem);
+      if (currRowElem !== '.') row.add(currRowElem);
+      if (currColElem !== '.') col.add(currColElem);
+      if (currBoxElem !== '.') box.add(currBoxElem);
     }
-
-    rows.clear();
-    cols.clear();
-    boxes.clear();
   }
-
   return true;
 };
 
