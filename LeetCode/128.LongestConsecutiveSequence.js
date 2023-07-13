@@ -43,3 +43,30 @@ const longestConsecutiveSolution = function (nums) {
   }
   return count;
 };
+
+// FASTEST SOLUTION
+const longestConsecutiveFastest = function (nums) {
+  if (nums.length === 0) {
+    return 0;
+  }
+
+  const numSet = new Set(nums);
+  let max = 1;
+
+  for (const num of numSet) {
+    if (!numSet.has(num - 1)) {
+      // Check if num is the start of a sequence
+      let currNum = num;
+      let currStreak = 1;
+
+      while (numSet.has(currNum + 1)) {
+        currNum++;
+        currStreak++;
+      }
+
+      max = Math.max(max, currStreak);
+    }
+  }
+
+  return max;
+};
