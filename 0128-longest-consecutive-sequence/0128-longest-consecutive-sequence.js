@@ -2,22 +2,19 @@
  * @param {number[]} nums
  * @return {number}
  */
-const longestConsecutive = function(nums) {
-    if (nums.length <=1) return nums.length
-    nums.sort((a, b) => a - b);
-    let count = 0;
-    let temp = 1;
-   
-    for (let i = 0; i < nums.length - 1; i++) {
-        if (nums[i] === nums[i + 1] - 1) {
-            temp++;
-            count = Math.max(count, temp);
-        } else if (nums[i] === nums[i + 1]) {
-            count = Math.max(count, temp);
-        } else {
-            temp = 1;
-            count = Math.max(count, temp);
+var longestConsecutive = function(nums) {
+    const numSet = new Set(nums)
+    let longest = 0
+    for (n of nums){
+
+      if (!(numSet.has(n-1))){
+        let length = 0
+        while (numSet.has(n + length)) {
+          length++
+          longest = Math.max(longest, length)
         }
+      }
+
     }
-    return count;
+    return longest
 };
