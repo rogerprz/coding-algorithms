@@ -20,6 +20,7 @@ module.exports = {
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
     'func-names': 'off',
     'no-console': 'off',
+    'no-restricted-syntax': 'off',
     'max-len': [
       'warn',
       {
