@@ -17,10 +17,11 @@ module.exports = {
     'no-empty-function': 'error',
     'no-unused-vars': 'error',
     quotes: ['error', 'single', { avoidEscape: true }],
-    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
     'func-names': 'off',
     'no-console': 'off',
     'no-restricted-syntax': 'off',
+    'no-continue': 'off',
+    'no-plusplus': 'off',
     'max-len': [
       'warn',
       {
