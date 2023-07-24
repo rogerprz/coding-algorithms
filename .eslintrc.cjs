@@ -22,6 +22,7 @@ module.exports = {
     'no-restricted-syntax': 'off',
     'no-continue': 'off',
     'no-plusplus': 'off',
+    'consistent-return': 'warn',
     'max-len': [
       'warn',
       {
