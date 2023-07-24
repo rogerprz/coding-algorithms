@@ -34,7 +34,6 @@ MinStack.prototype.top = function () {
   if (this.stack.length > 0) {
     return this.stack[this.stack.length - 1];
   }
-  return null;
 };
 
 /**
@@ -44,8 +43,6 @@ MinStack.prototype.getMin = function () {
   if (this.minStack.length > 0) {
     return this.minStack[this.minStack.length - 1];
   }
-
-  return null;
 };
 
 /**
