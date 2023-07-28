@@ -14,8 +14,6 @@ const isSubsequence = function (s, t) {
     if (leftNum === rightNum) {
       left++;
     }
-    // increase longer string every loop
-
     right++;
   }
 
