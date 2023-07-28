@@ -3,10 +3,6 @@ const isSubsequence = function (s, t) {
   let left = 0;
   let right = 0;
 
-  // Not my solution
-  // Not my solution
-
-  // Create a loop that checkes both lengths are greter than their pointers
   while (left < s.length && right < t.length) {
     const leftNum = s[left];
     const rightNum = t[right];
