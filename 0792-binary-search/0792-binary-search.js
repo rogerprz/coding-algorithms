@@ -10,11 +10,9 @@ var search = function(nums, target) {
 
   while (l <= r) {
     const mid = Math.floor((l + r)/ 2)
-    const midNum = nums[mid]
     
-    if (midNum === target) return mid
-
-    if (midNum < target) {
+    if (nums[mid] === target) return mid
+    else if (nums[mid] < target) {
       l = mid + 1
     } else {
       r = mid - 1
