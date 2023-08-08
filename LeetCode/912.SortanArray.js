@@ -1,4 +1,5 @@
 /* eslint-disable no-shadow */
+// Last updated: August 07, 2023
 const sortArray = function (nums) {
   // NOT MY SOLUTION - mergeSort
   if (nums.length < 2) return nums;
