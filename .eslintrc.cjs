@@ -23,6 +23,7 @@ module.exports = {
     'no-continue': 'off',
     'no-plusplus': 'off',
     'consistent-return': 'warn',
+    'no-shadow': 'off',
     'max-len': [
       'warn',
       {
