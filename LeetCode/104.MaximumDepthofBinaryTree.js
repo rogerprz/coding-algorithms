@@ -1,12 +1,15 @@
 const maxDepth = function (root) {
-  // NOT MY SOLUTION
-  if (root == null) return 0;
+  if (!root) return 0;
 
-  const leftDepth = maxDepth(root.left);
-  const rightDepth = maxDepth(root.right);
+  const determineMaxDepth = (node) => {
+    if (!node) return 0;
 
-  const result = Math.max(leftDepth, rightDepth) + 1;
-  return result;
+    const leftMaxDepth = determineMaxDepth(node.left);
+    const rightMaxDepth = determineMaxDepth(node.right);
+
+    return Math.max(leftMaxDepth, rightMaxDepth) + 1;
+  };
+  return determineMaxDepth(root);
 };
 
 // Input: root = [3,9,20,null,null,15,7]
