@@ -18,5 +18,4 @@ const productExceptSelf = function (nums) {
 };
 
 const case1 = [1, 2, 3, 4];
-console.log('HERE:');
-productExceptSelf(case1);
+console.log(productExceptSelf(case1));
