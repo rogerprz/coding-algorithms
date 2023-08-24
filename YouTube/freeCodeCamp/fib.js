@@ -1,3 +1,5 @@
+// To Run:
+// node YouTube/freeCodeCamp/fib.js
 const fib = (n) => {
   if (n <= 2) return 1;
 
@@ -8,5 +10,5 @@ console.log(fib(6));
 console.log(fib(7));
 console.log(fib(8));
 
-// To Run:
-// node YouTube/freeCodeCamp/fib.js
+// How to improve this solution?
+// Memoization
