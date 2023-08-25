@@ -24,6 +24,7 @@ module.exports = {
     'no-plusplus': 'off',
     'consistent-return': 'warn',
     'no-shadow': 'off',
+    'no-param-reassign': 'off',
     'max-len': [
       'warn',
       {
