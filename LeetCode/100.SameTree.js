@@ -8,9 +8,7 @@ const isSameTree = function (p, q) {
   // if (leftTree.val !== rightTree.val) return false
   const stackOne = [leftTree];
   const stackTwo = [rightTree];
-  // stack = [ 1 , 1]
-  // p = [1,2,3],
-  // q = [1,2,3]
+
   while (stackOne.length > 0 || stackTwo.length > 0) {
     const leftTree = stackOne.pop();
     const rightTree = stackTwo.pop();
