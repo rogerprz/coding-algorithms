@@ -1,3 +1,6 @@
+// Last tried: 09/21/23 (Easy)
+// https://leetcode.com/problems/find-pivot-index/
+
 const pivotIndex = function (nums) {
   let rightSum = nums.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
   let leftSum = 0;
