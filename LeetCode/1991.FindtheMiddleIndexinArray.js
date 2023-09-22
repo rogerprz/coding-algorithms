@@ -1,3 +1,6 @@
+// Last attempted: 09/21/23 (Easy)
+// https://leetcode.com/problems/find-the-middle-index-in-array/
+
 const findMiddleIndex = function (nums) {
   let rightSum = nums.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
   let leftSum = 0;
