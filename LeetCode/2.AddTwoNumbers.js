@@ -3,9 +3,9 @@ function ListNode(val, next) {
   this.next = next === undefined ? null : next;
 }
 
-addTwoNumbers = function (l1, l2) {
+const addTwoNumbers = function (l1, l2) {
   let head = new ListNode(0);
-  let result = head;
+  const result = head;
 
   let valueCarried = 0;
   while (l1 || l2) {
@@ -15,13 +15,13 @@ addTwoNumbers = function (l1, l2) {
     if (l1) leftVal = l1.val;
     if (l2) rightVal = l2.val;
 
-    let total = leftVal + rightVal + valueCarried;
+    const total = leftVal + rightVal + valueCarried;
 
     valueCarried = 0;
     if (total >= 10) {
       const str = total.toString();
-      const singleDigit = parseInt(str.charAt(1));
-      valueCarried = parseInt(str.charAt(0));
+      const singleDigit = parseInt(str.charAt(1), 10);
+      valueCarried = parseInt(str.charAt(0), 10);
 
       head.next = new ListNode(singleDigit);
     } else {
@@ -37,3 +37,8 @@ addTwoNumbers = function (l1, l2) {
 
   return result.next;
 };
+
+const l1 = new ListNode(2, new ListNode(4, new ListNode(3)));
+const l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
+
+console.log(addTwoNumbers(l1, l2)); // 7 -> 0 -> 8
