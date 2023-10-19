@@ -13,8 +13,7 @@
  */
 var reverseBetween = function(head, left, right) {
      if (!head || left === right) return head;
-    const dummy = new ListNode(0);
-    dummy.next = head;
+    const dummy = new ListNode(0, head);
     let prev = dummy;
     
     for (let i = 0; i < left - 1; ++i) {
