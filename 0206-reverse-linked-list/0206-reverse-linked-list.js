@@ -12,7 +12,6 @@
 var reverseList = function(head) {
     let list = head 
     let prev = null
-    // [1,2,3,4,5]
 
     while (list ) {
         const tempNode = list.next // 2
@@ -21,6 +20,5 @@ var reverseList = function(head) {
         list = tempNode
 
     }
-    console.log(list, head, prev)
     return prev
 };
