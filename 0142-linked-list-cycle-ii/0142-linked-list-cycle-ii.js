@@ -17,10 +17,8 @@ var detectCycle = function(head) {
     while (list) {
 
        if (set.has(list)) return list
-       else {
-           set.add(list)
-           list = list.next
-       }
+        set.add(list)
+        list = list.next
     }
 
     return null
