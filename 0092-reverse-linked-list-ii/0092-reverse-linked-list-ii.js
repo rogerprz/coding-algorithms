@@ -11,7 +11,9 @@
  * @param {number} right
  * @return {ListNode}
  */
-var reverseBetween = function(head, left, right) {
+
+ var reverseBetween = function(head, left, right) {
+    //  NOT MY SOLUTION
      if (!head || left === right) return head;
     const dummy = new ListNode(0, head);
     let prev = dummy;
@@ -31,19 +33,3 @@ var reverseBetween = function(head, left, right) {
     
     return dummy.next;
 };
-
- const reverseList = (head, count)=>{
-        let node = head 
-        let prev = null 
-
-        while (count > 0) {
-            if (!node.next) return [prev, node]
-            const next = node.next 
-
-            node.next = prev
-            prev = node
-            node = next
-            count--
-        }
-        return [prev, node]
-    }
