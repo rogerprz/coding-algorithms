@@ -9,17 +9,36 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverseList = function(head) {
+
+const reverseList = function(head) {
+    let prev = null
     let current = head 
-    let prev = null 
 
-    while (current) {
+    const recursion = (prev, current) =>{
+        if (!current) {
+            return prev 
+        }
+
         let nextNode = current.next
-
         current.next = prev
-        prev = current
+        prev = current 
         current = nextNode
-    }
 
-    return prev
-};
+        return recursion(prev, current)
+    }
+    return recursion(prev, current)
+ }
+// var reverseList = function(head) {
+//     let current = head 
+//     let prev = null 
+
+//     while (current) {
+//         let nextNode = current.next
+
+//         current.next = prev
+//         prev = current
+//         current = nextNode
+//     }
+
+//     return prev
+// };
