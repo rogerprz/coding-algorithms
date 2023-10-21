@@ -16,22 +16,29 @@ var flatten = function(head) {
     // NOT MY SOLUTION
     if (!head) return head
 
-    const pseudoHead = new Node (null, null, head ,null)
+    const prevHead = new Node (null, null, head ,null)
+    flattenDfs(prevHead, head)
 
+    prevHead.next.prev = null
+    return prevHead.next
+};
+// prevHead
+//     |
+//     1---2---3---4---5---6--NULL
+//             |
+//             7---8---9---10--NULL
+//                 |
+//                 11--12--NULL
+ const flattenDfs = (prev, currOrChild) => {
+        if (!currOrChild){
+             return prev // 1 
+        }
 
-    const flattenDfs = (prev, current) => {
-        if (!current) return prev
+        currOrChild.prev = prev
+        prev.next = currOrChild
 
-        current.prev = prev
-        prev.next = current
-
-        const tempNext = current.next
-        const tail = flattenDfs(current, current.child)
-        current.child = null
+        const tempNext = currOrChild.next // 2
+        const tail = flattenDfs(currOrChild, currOrChild.child) // [1 , null]
+        currOrChild.child = null
         return flattenDfs(tail, tempNext)
     }
-    flattenDfs(pseudoHead, head)
-
-    pseudoHead.next.prev = null
-    return pseudoHead.next
-};
