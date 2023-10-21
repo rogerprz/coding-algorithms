@@ -14,31 +14,41 @@
  */
 var flatten = function(head) {
     // NOT MY SOLUTION
+    // dummyHead
+    //     |
+    //     1---2---3---4---5---6--NULL
+    //             |
+    //             7---8---9---10--NULL
+    //                 |
+    //                 11--12--NULL
     if (!head) return head
 
-    const prevHead = new Node (null, null, head ,null)
-    flattenDfs(prevHead, head)
+    const dummyHead = new Node (null, null, head ,null)
+    let prev = dummyHead
 
-    prevHead.next.prev = null
-    return prevHead.next
-};
-// prevHead
-//     |
-//     1---2---3---4---5---6--NULL
-//             |
-//             7---8---9---10--NULL
-//                 |
-//                 11--12--NULL
- const flattenDfs = (prev, currOrChild) => {
-        if (!currOrChild){
-             return prev // 1 
+    let stack = [];
+    stack.push(head)
+
+    while (!!stack.length) {
+        let current = stack.pop();
+
+        prev.next = current
+        current.prev = prev
+
+        if (current.next) {
+            stack.push(current.next)
+        }
+        if (current.child) {
+            stack.push(current.child)
+            // don't forget to remove all child pointers.
+            current.child = null
         }
 
-        currOrChild.prev = prev
-        prev.next = currOrChild
+        prev = current
 
-        const tempNext = currOrChild.next // 2
-        const tail = flattenDfs(currOrChild, currOrChild.child) // [1 , null]
-        currOrChild.child = null
-        return flattenDfs(tail, tempNext)
     }
+
+    dummyHead.next.prev = null 
+
+    return dummyHead.next
+};
