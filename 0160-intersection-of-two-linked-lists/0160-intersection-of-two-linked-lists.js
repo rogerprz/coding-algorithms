@@ -12,7 +12,6 @@
  * @return {ListNode}
  */
 var getIntersectionNode = function(headA, headB) {
-    
     const set = new Set()
 
     while (headA) {
@@ -21,9 +20,7 @@ var getIntersectionNode = function(headA, headB) {
     }
 
     while (headB) {
-        if (set.has(headB)){
-            return headB
-        }
+        if (set.has(headB)) return headB
         headB = headB.next
     }
 
