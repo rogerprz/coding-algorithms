@@ -13,14 +13,10 @@ var containsNearbyDuplicate = function(nums, k) {
         if (currNum in hash) {
             const index = hash[currNum].split(':')[1]
             const isResult = Math.abs(parseInt(index) - i)
-            if (isResult <= k) {
-                return true
-            } 
-            hash[currNum] = `index:${i}`
+            if (isResult <= k) return true
+           
         }
-        else {
-            hash[currNum] = `index:${i}`
-        }
+        hash[currNum] = `index:${i}`
     }
     return isValid
 };
