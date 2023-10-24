@@ -16,8 +16,13 @@ var searchBST = function(root, val) {
     console.log('R:', root.val, 'VAL:', val)
     if (root.val === val) return root
 
+    let node = null
+    if (val< root.val) {
+        node = searchBST(root.left, val)
+    } 
+    else {
+        node = searchBST(root.right, val)
+    }
 
-
-
-    return val< root.val ? searchBST(root.left, val) : searchBST(root.right, val)
+    return node
 };
