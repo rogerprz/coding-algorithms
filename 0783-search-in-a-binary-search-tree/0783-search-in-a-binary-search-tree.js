@@ -13,7 +13,6 @@
  */
 var searchBST = function(root, val) {
     if(!root) return root
-    console.log('R:', root.val, 'VAL:', val)
     if (root.val === val) return root
 
     let node = null
