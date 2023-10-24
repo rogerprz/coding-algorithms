@@ -7,7 +7,7 @@ var reverseString = function(str) {
         if (left<right) {
             [str[left], str[right]] = [str[right], str[left]]
             
-            reverse(left+1, right-1)
+            return reverse(left+1, right-1)
         }
 
        
