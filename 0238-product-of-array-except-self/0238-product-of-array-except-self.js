@@ -3,26 +3,28 @@
  * @return {number[]}
  */
 var productExceptSelf = function(nums) {
-    // this a prefix and post fix algorithm
-    // create a results array and fill it with 1 *nums.length
-    const result = new Array(nums.length).fill(1);
-    let prefixNum = 1
-    // we need to create a prefix and set it to 1.
-    // [1][1,2,3,4]
-    // loop through array where we set and multiple result[i] = result[i]*prefix
-    for (let i = 0; i<nums.length;i++) {
-    // prefix num = prefix num* currentNum
-      result[i] *= prefixNum
-      prefixNum *=nums[i]
-    }
-    // we create a postfix == 1
-    let postNum = 1
-    // we do the same as initial loop except we start from top and go to bottom. 
-    // [1,2,3,4][1]
-    for (let i = nums.length-1; i >= 0;i--){
-      result[i] *=postNum
-      postNum *=nums[i]
-    }
-    return result
+    
+    // nums =   0 [1,2,3,4] 
+    //           [1,2,3,4] 0
+    //                 j
+    // Output:  [24,12,8,6]
+    // [0,0,0,0]
+    let result = Array(nums.length).fill(1);
 
+    let preNum = 1;
+
+    for (let i = 0;i<nums.length; i++) {
+        // [1,1,1,1]
+        result[i] = result[i]*preNum
+        preNum = preNum*nums[i]
+    }
+    console.log(result)
+
+    let postNum = 1
+    for (let j=nums.length-1; j>=0;j--) {
+         result[j] = result[j]*postNum
+        postNum = postNum*nums[j]
+    }
+
+    return result
 };
