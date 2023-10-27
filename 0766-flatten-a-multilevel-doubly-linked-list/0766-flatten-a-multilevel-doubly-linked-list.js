@@ -13,42 +13,30 @@
  * @return {Node}
  */
 var flatten = function(head) {
-    // NOT MY SOLUTION
-    // dummyHead
-    //     |
-    //     1---2---3---4---5---6--NULL
-    //             |
-    //             7---8---9---10--NULL
-    //                 |
-    //                 11--12--NULL
-    if (!head) return head
+    if (!head) return head 
 
-    const dummyHead = new Node (null, null, head ,null)
-    let prev = dummyHead
+    const pseudoNode = new Node(null,null, head,null)
+    let prev = pseudoNode
 
-    let stack = [];
-    stack.push(head)
+    const stack = [head]
+    
+    while (stack.length) {
+        let node = stack.pop()
 
-    while (!!stack.length) {
-        let current = stack.pop();
+        prev.next = node 
+        node.prev = prev
 
-        prev.next = current
-        current.prev = prev
-
-        if (current.next) {
-            stack.push(current.next)
+        if (node.next) {
+            stack.push(node.next)
         }
-        if (current.child) {
-            stack.push(current.child)
-            // don't forget to remove all child pointers.
-            current.child = null
+        if (node.child) {
+            stack.push(node.child)
+            node.child = null
         }
-
-        prev = current
-
+        prev = node
     }
 
-    dummyHead.next.prev = null 
+    pseudoNode.next.prev = null 
 
-    return dummyHead.next
+    return pseudoNode.next
 };
