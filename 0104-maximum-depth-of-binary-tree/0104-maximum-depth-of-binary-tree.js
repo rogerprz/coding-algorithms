@@ -11,16 +11,12 @@
  * @return {number}
  */
 var maxDepth = function(root) {
-    if (!root) return 0
+    if (!root) return root 
 
-    const determineMaxDepth = (node)=> {
+    
+    const leftDepth = maxDepth(root.left)
+    const rightDepth = maxDepth(root.right)
 
-        if (!node) return 0 
+    return Math.max(leftDepth, rightDepth) + 1
 
-        const leftMaxDepth = determineMaxDepth(node.left)
-        const rightMaxDepth = determineMaxDepth(node.right)
-
-        return Math.max(leftMaxDepth, rightMaxDepth)+1
-    }
-    return determineMaxDepth(root)
 };
