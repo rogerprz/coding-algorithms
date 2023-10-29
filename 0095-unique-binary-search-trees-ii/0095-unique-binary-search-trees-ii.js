@@ -14,27 +14,26 @@ var generateTrees = function(n) {
     // NOT MY SOLUTION
     if (n === 0) return []
 
-    const buildTrees = (start, end, memo= {}) => {
-        if (`${start}-${end}` in memo) return memo[`${start}-${end}`]
+    const buildTrees = (start, end) => {
+        if (start> end) return [null]
+
         const allTrees = []
-        if (start> end) {
-            allTrees.push(null)
-            return allTrees
-        }
 
         for (let i = start; i<=end; i++) {
             const leftTrees = buildTrees(start, i - 1)
             const rightTrees = buildTrees(i+1, end)
 
-            for (let leftNode of leftTrees) {
-                for (const rightNode of rightTrees) {
-                    const root = new TreeNode(i, leftNode, rightNode)
-                    allTrees.push(root)
+            for (let l of leftTrees) {
+                for (const r of rightTrees) {
+                    const currentTree = new TreeNode(i)
+
+                    currentTree.left = l
+                    currentTree.right = r
+
+                    allTrees.push(currentTree)
                 }
             }
         }
-
-        memo[`${start}-${end}`] = allTrees;
         return allTrees
     }
 
