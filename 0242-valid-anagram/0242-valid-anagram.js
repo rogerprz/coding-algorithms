@@ -4,8 +4,9 @@
  * @return {boolean}
  */
 var isAnagram = function(s, t) {
-    const sSort = s.split('').sort().join('') 
-    const tSort = t.split('').sort().join('')
-    console.log('S:', sSort, 'T:', tSort)
-    return sSort === tSort
+    const str = s.split('').sort()
+    const tr = t.split('').sort()
+
+    console.log(str, tr)
+    return str.join('') === tr.join('')
 };
