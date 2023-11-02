@@ -15,11 +15,8 @@ var minDepth = function(root) {
 
     if (!root.left) return 1 + minDepth(root.right)
     else if (!root.right) return 1 + minDepth(root.left)
-    // const leftNodes = minDepth(root.left, count++ )
-    // const rightNodes = minDepth(root.right, count++)
 
-    // console.log('L:', leftNodes, 'R:', rightNodes, count)
-    return 1+ Math.min(minDepth(root.left), minDepth(root.right))
+    return 1 + Math.min(minDepth(root.left), minDepth(root.right))
 };
 
     //     2,
