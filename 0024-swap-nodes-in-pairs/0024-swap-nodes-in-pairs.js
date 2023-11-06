@@ -17,12 +17,12 @@ var swapPairs = function(head) {
     let prev = dummyNode // [0, 1,2,3,4]
 
     while (prev.next && prev.next.next) {
-        let secondNode = prev.next  // [1, 2,3,4]
-        let firstNode = prev.next.next // 2 [2,3,4]
+        let nextNode = prev.next  // [1, 2,3,4]
+        let swapNode = prev.next.next // 2 [2,3,4]
 
-        prev.next = firstNode  // [0, 1,2,3,4] -> [0,2,3,4]
-        secondNode.next = firstNode.next // [1, 2,3,4] -> [1, 3,4]
-        firstNode.next = secondNode     //  [2,3,4] -> [2, 3,4]
+        prev.next = swapNode  // [0, 1,2,3,4] -> [0,2,3,4]
+        nextNode.next = swapNode.next // [1, 2,3,4] -> [1, 3,4]
+        swapNode.next = nextNode     //  [2,3,4] -> [2, 3,4]
 
         prev = prev.next.next
 
