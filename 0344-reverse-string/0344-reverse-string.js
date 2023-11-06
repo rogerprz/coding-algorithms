@@ -2,16 +2,17 @@
  * @param {character[]} s
  * @return {void} Do not return anything, modify s in-place instead.
  */
-var reverseString = function(str) {
-    const reverse = (left, right) => { 
-        if (left<right) {
-            [str[left], str[right]] = [str[right], str[left]]
-            
-            return reverse(left+1, right-1)
-        }
+var reverseString = function(s) {
+    if (s.length <= 1) return s
 
-       
+    let left = 0;
+    let right = s.length - 1
+
+    while (left<right) {
+        [s[left], s[right]] = [ s[right], s[left]]
+        left++
+        right--
     }
 
-    return reverse(0, str.length-1)
+    return s
 };
