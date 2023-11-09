@@ -3,22 +3,20 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var sortColors = function(nums) {
-    // NOT MY SOLUTION
-    let p0 = 0
-    let curr = 0
-        // # for all idx > p2 : nums[idx > p2] = 2
-    let p2 = nums.length - 1
+    let left = 0
+    let current = 0;
+    let right = nums.length-1
 
-    while (curr <= p2){
-        if (nums[curr] === 0) {
-            [nums[p0], nums[curr]]= [nums[curr], nums[p0]]
-            p0++
-            curr++
-        } else if (nums[curr] === 2) {
-            [nums[curr], nums[p2]] = [nums[p2], nums[curr]]
-            p2-=1
+    while (current <= right) {
+        if (nums[current] === 0) {
+            [nums[left], nums[current]] = [nums[current], nums[left]]
+            left++
+            current++
+        } else if (nums[current] === 2){
+            [nums[current], nums[right]] = [nums[right], nums[current]]
+            right--
         } else {
-            curr+=1
+            current++
         }
     }
     return nums
