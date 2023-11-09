@@ -11,22 +11,26 @@
  * @return {ListNode}
  */
 var swapNodes = function(head, k) {
-    // NOT MY SOLUTION
-    if (!head) return head 
-    let left = head 
-    let right = head 
+    let slow = head 
+    let fast = head 
 
-    for (let i = 1; i < k; i++) {
-        left = left.next;
+    for (let i = 1;i < k; i++) {
+        fast = fast.next 
     }
-    let curr = left;
-    while (curr.next) {
-        curr = curr.next;
-        right = right.next;
+
+    let current = fast 
+
+    while (fast.next) {
+        fast = fast.next
+        slow = slow.next
     }
-    let temp = left.val;
-    left.val = right.val;
-    right.val = temp;
-    
-    return head;
+
+    let leftValTemp = current.val 
+    current.val = slow.val // 2 -> 4
+    slow.val = leftValTemp
+
+
+    console.log("S:", slow, fast, current, head)
+
+    return head
 };
