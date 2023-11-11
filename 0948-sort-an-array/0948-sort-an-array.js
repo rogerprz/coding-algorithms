@@ -3,24 +3,31 @@
  * @return {number[]}
  */
 var sortArray = function(nums) {
-    // NOT MY SOLUTION - mergeSort
-    if (nums.length < 2) return nums;
-    var mid   = Math.floor(nums.length/2);
-    var left  = nums.slice(0,mid);
-    var right = nums.slice(mid);
-    
-    function merge(left,right) {
-        var result = [],lLen = left.length, rLen = right.length, l = 0, r = 0;
-        while(l < lLen && r < rLen){
-            if(left[l] < right[r]){
-                result.push(left[l++]);
-            }
-            else{
-                result.push(right[r++]);
-            }
-        }  
-        return result.concat(left.slice(l)).concat(right.slice(r));
-    }
+    // NOT MY SOLUTION 
+    // MERGE SORT, const nums = [5,2,3,1]
+    if (nums.length < 2) return nums 
 
-   return merge(sortArray(left),sortArray(right));
+    // Find the mid index
+    let mid = Math.floor(nums.length/2)
+    // Get left half 
+    let left = nums.slice(0,mid)
+    // Get the right half
+    let right = nums.slice(mid)
+
+    // Here we use recursion to to reduce the size of the array from each side. 
+    return merge(sortArray(left), sortArray(right))
+};
+
+const merge = function(leftNums, rightNums) {
+    const sortedResult = [];
+    let i = 0;
+    let j = 0;
+    while (i < leftNums.length && j < rightNums.length) {
+        if (leftNums[i] <= rightNums[j]) {
+            sortedResult.push(leftNums[i++]);
+        } else {
+            sortedResult.push(rightNums[j++]);
+        }
+    }
+    return [...sortedResult, ...leftNums.slice(i), ...rightNums.slice(j)];
 }
