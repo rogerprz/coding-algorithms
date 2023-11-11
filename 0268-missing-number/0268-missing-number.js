@@ -3,12 +3,11 @@
  * @return {number}
  */
 var missingNumber = function(nums) {
-    let set = new Set(nums)
-    const n = nums.length
-    if(!nums.includes(n)) return n
+    const sorted = nums.sort((a,b) => a-b)
 
-    for (let i = 0; i<nums.length; i++){
-        if (!(set.has(i))) return i 
+    for (let i = 0; i<nums.length;i++) {
+        if (nums[i] !== i) return i
     }
+
     return nums.length
 };
