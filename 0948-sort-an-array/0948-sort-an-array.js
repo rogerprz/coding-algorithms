@@ -18,16 +18,15 @@ var sortArray = function(nums) {
     return merge(sortArray(left), sortArray(right))
 };
 
-const merge = function(leftNums, rightNums) {
-    const sortedResult = [];
-    let i = 0;
-    let j = 0;
-    while (i < leftNums.length && j < rightNums.length) {
-        if (leftNums[i] <= rightNums[j]) {
-            sortedResult.push(leftNums[i++]);
+const merge = function(arrLeft, arrRight) {
+    let sortedArray = []
+    while (arrLeft.length > 0 && arrRight.length > 0) {
+        if (arrLeft[0] <= arrRight[0]) {
+            sortedArray.push(arrLeft.shift())
         } else {
-            sortedResult.push(rightNums[j++]);
+            sortedArray.push(arrRight.shift())
         }
     }
-    return [...sortedResult, ...leftNums.slice(i), ...rightNums.slice(j)];
+
+    return [...sortedArray, ...arrLeft, ...arrRight]
 }
