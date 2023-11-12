@@ -3,34 +3,42 @@
  * @return {number[][]}
  */
 var threeSum = function(nums) {
-    const results = []
-    const target = 0
+    const results = [] 
+    // sort in order for us to be able to find the best total to add.
     nums.sort((a,b) => a-b)
-// [ -4, -1, -1, 0, 1, 2 ]
-    for (let aIndex =0; aIndex <nums.length; aIndex++){
-        if (aIndex > 0 && nums[aIndex] === nums[aIndex-1]) continue
-        let bIndex = aIndex+1
-        let cIndex = nums.length-1
 
-        while (bIndex < cIndex) {
-            const aNum = nums[aIndex]
-            const bNum = nums[bIndex]
-            const cNum = nums[cIndex]
+    for (let a = 0; a<nums.length; a++) {
+        // index a is > than 0 and 
+        // the current num is == to next num we skip the check.
+        if (a > 0 && nums[a] === nums[a-1]) continue 
+        // we always want to get the num in front of a
+        let b = a+1
+        // get the last num in the array since this is our max
+        let c = nums.length-1
+        // we iterate at index b and c since a,b,c need to add to total.
+        while (b < c) {
+            // get the num's at each position.
+            const aNum = nums[a]
+            const bNum = nums[b]
+            const cNum = nums[c]
             const total = aNum + bNum + cNum
-
-            if (total === target) {
+            // If the total is == 0 then we found a match
+            if (total === 0) {
+                // push the nums into the results
                 results.push([aNum, bNum, cNum])
-
-                while (bNum === nums[bIndex+1]) bIndex++
-                bIndex++
-                cIndex--
-            } else if (total > target) {
-                cIndex--
-            } else {
-                bIndex++
+                // Now that we found a pair we want to move up the b/mid pointer as to not have duplicates.
+                while (bNum === nums[b+1]) b++ 
+                // once we are past it, then we increase as normal. 
+                b++
+            } else if (total > 0) {
+                // if total > 0 then the last num is too high, we need to lower it. 
+                c--
+            }
+            else {
+                // we increase mid pointer since no matches found.
+                b++
             }
         }
-
     }
     return results
 };
