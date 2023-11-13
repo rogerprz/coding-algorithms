@@ -14,6 +14,7 @@ module.exports = {
   plugins: ['react'],
   rules: {
     'guard-for-in': 'off',
+    radix: 'off',
     'comma-dangle': 'off',
     'no-empty-function': 'error',
     'no-unused-vars': 'error',
