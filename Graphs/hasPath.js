@@ -4,8 +4,8 @@ const hasPath = (graph, source, dst) => {
 
   while (stack.length > 0) {
     const current = stack.pop();
+    if (current === dst) return true;
     for (const neighbor of graph[current]) {
-      if (neighbor === dst) return true;
       stack.push(neighbor);
     }
   }
@@ -30,7 +30,7 @@ const graph = {
   k: []
 };
 
-// console.log(hasPath(graph, 'f', 'k'));
-hasPath(graph, 'f', 'd');
+console.log(hasPath(graph, 'f', 'k')); // true
+hasPath(graph, 'f', 'd'); // false
 
-console.log(hasPathRecursion(graph, 'f', 'k'));
+console.log(hasPathRecursion(graph, 'f', 'k')); // true
