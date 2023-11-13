@@ -4,10 +4,9 @@ const depthFirstPrint = (graph, source) => {
   while (stack.length > 0) {
     const node = stack.shift();
     console.log('NODE:', node);
+
     const children = graph[node];
-    for (let i = 0; i < children.length; i++) {
-      const child = children[i];
-      //   console.log('C:', child);
+    for (const child of children) {
       stack.push(child);
     }
   }
