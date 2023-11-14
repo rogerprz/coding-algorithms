@@ -1,0 +1,38 @@
+const largestComponent = (graph) => {
+  const visited = new Set();
+  let max = 0;
+  let count = 0;
+
+  const traverse = (graph, current, visited) => {
+    if (visited.has(current)) return false;
+
+    visited.add(current);
+    count++;
+    for (const node of graph[current]) {
+      console.log('T:', node);
+      traverse(graph, node, visited);
+    }
+
+    return true;
+  };
+  for (const node in graph) {
+    if (traverse(graph, parseInt(node), visited)) {
+      if (count > max) max = count;
+    }
+    count = 0;
+  }
+  // test
+  return max;
+};
+
+const graph = {
+  0: [8, 1, 5],
+  1: [0],
+  2: [3, 4],
+  3: [2, 4],
+  4: [3, 2],
+  5: [0, 8],
+  8: [0, 5]
+};
+
+console.log(largestComponent(graph));
