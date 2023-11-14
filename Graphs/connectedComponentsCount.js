@@ -75,7 +75,7 @@ console.log(connectedComponentsCount(graph)); // count = 3
 //
 //
 //
-////
+//
 //
 
 const connectedComponentsCountAnswer = (graph) => {
