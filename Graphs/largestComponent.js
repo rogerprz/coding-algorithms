@@ -38,7 +38,7 @@ const graph = {
 console.log(largestComponent(graph));
 
 console.log(
-  'OUTPUTis 4: ',
+  'OUTPUT is 4: ',
   largestComponent({
     0: ['8', '1', '5'],
     1: ['0'],
@@ -51,7 +51,7 @@ console.log(
 );
 
 console.log(
-  'OUTPUTis 5: ',
+  'OUTPUT is 5: ',
   largestComponent({
     3: [],
     4: ['6'],
@@ -65,7 +65,7 @@ console.log(
 );
 
 console.log(
-  'OUTPUTis 6: ',
+  'OUTPUT is 6: ',
   largestComponent({
     1: ['2'],
     2: ['1', '8'],
