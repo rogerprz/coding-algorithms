@@ -25,6 +25,31 @@ const largestComponent = (graph) => {
   return max;
 };
 
+const largestComponentSolution = (graph) => {
+  const visited = new Set();
+
+  let largest = 0;
+
+  const explore = (graph, current, count) => {
+    if (visited.has(current)) return 0;
+
+    visited.add(current);
+    let size = 1;
+    for (const node of graph[current]) {
+      count++;
+      size += explore(graph, node, count);
+    }
+    return size;
+  };
+
+  for (const neighbors in graph) {
+    const size = explore(graph, neighbors, 1);
+    if (largest < size) largest = size;
+  }
+  console.log('COUNT:', largest);
+  return largest;
+};
+
 const graph = {
   0: [8, 1, 5],
   1: [0],
@@ -37,6 +62,7 @@ const graph = {
 
 console.log(largestComponent(graph));
 
+console.log(largestComponentSolution(graph));
 console.log(
   'OUTPUT is 4: ',
   largestComponent({
