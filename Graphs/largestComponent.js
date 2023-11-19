@@ -7,7 +7,6 @@ const largestComponent = (graph) => {
     visited.add(current);
     let size = 1;
     for (const node of graph[current]) {
-      console.log('NODE:', node);
       size += explore(graph, node);
     }
     return size;
