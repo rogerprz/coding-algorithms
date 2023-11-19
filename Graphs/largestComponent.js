@@ -1,28 +1,22 @@
 const largestComponent = (graph) => {
   const visited = new Set();
-  let max = 0;
-  let count = 0;
-
-  const traverse = (graph, current, visited) => {
-    if (visited.has(current)) return false;
+  let longest = 0;
+  const explore = (graph, current) => {
+    if (visited.has(current)) return 0;
 
     visited.add(current);
-    count++;
+    let size = 1;
     for (const node of graph[current]) {
-      console.log('T:', node);
-      traverse(graph, node, visited);
+      console.log('NODE:', node);
+      size += explore(graph, node);
     }
-
-    return true;
+    return size;
   };
-  for (const node in graph) {
-    if (traverse(graph, node, visited)) {
-      if (count > max) max = count;
-    }
-    count = 0;
+  for (const neighbors in graph) {
+    const count = explore(graph, neighbors);
+    if (count > longest) longest = count;
   }
-  // test
-  return max;
+  return longest;
 };
 
 const largestComponentSolution = (graph) => {
