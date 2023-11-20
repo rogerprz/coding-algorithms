@@ -28,3 +28,34 @@ const explore = (grid, row, col, visited) => {
   size += explore(grid, row, col - 1, visited, size);
   return size;
 };
+
+console.log(
+  'OUTPUT:2:',
+  minimumIsland([
+    ['W', 'L', 'W', 'W', 'W'],
+    ['W', 'L', 'W', 'W', 'W'],
+    ['W', 'W', 'W', 'L', 'W'],
+    ['W', 'W', 'L', 'L', 'W'],
+    ['L', 'W', 'W', 'L', 'L'],
+    ['L', 'L', 'W', 'W', 'W']
+  ])
+);
+
+console.log(
+  'OUTPUT:1:',
+  minimumIsland([
+    ['L', 'W', 'W', 'L', 'W'],
+    ['L', 'W', 'W', 'L', 'L'],
+    ['W', 'L', 'W', 'L', 'W'],
+    ['W', 'W', 'W', 'W', 'W'],
+    ['W', 'W', 'L', 'L', 'L']
+  ])
+);
+console.log(
+  'OUTPUT:9:',
+  minimumIsland([
+    ['L', 'L', 'L'],
+    ['L', 'L', 'L'],
+    ['L', 'L', 'L']
+  ])
+);
