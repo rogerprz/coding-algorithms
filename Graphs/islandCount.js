@@ -28,3 +28,34 @@ const explore = (grid, row, col, visited) => {
 
   return 1;
 };
+
+console.log(
+  'OUTPUT: 3:',
+  islandCount([
+    ['W', 'L', 'W', 'W', 'W'],
+    ['W', 'L', 'W', 'W', 'W'],
+    ['W', 'W', 'W', 'L', 'W'],
+    ['W', 'W', 'L', 'L', 'W'],
+    ['L', 'W', 'W', 'L', 'L'],
+    ['L', 'L', 'W', 'W', 'W']
+  ])
+);
+
+console.log(
+  'OUTPUT: 4:',
+  islandCount([
+    ['L', 'W', 'W', 'L', 'W'],
+    ['L', 'W', 'W', 'L', 'L'],
+    ['W', 'L', 'W', 'L', 'W'],
+    ['W', 'W', 'W', 'W', 'W'],
+    ['W', 'W', 'L', 'L', 'L']
+  ])
+);
+console.log(
+  'OUTPUT: 1:',
+  islandCount([
+    ['L', 'L', 'L'],
+    ['L', 'L', 'L'],
+    ['L', 'L', 'L']
+  ])
+);
