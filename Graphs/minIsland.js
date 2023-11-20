@@ -6,7 +6,7 @@ const minimumIsland = (grid) => {
     const row = grid[rowIndex];
     for (let colIndex = 0; colIndex < row.length; colIndex++) {
       let total = explore(grid, rowIndex, colIndex, visited);
-      if (total < minIsland && total != 0) minIsland = total;
+      if (total < minIsland && total !== 0) minIsland = total;
     }
   }
   return minIsland;
