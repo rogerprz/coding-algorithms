@@ -1,3 +1,5 @@
+// https://structy.net/problems/island-count
+
 const islandCount = (grid) => {
   const visited = new Set();
   let count = 0;
