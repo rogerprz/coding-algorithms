@@ -1,3 +1,4 @@
+// https://structy.net/problems/minimum-island
 const minimumIsland = (grid) => {
   const visited = new Set();
   let minIsland = Infinity;
@@ -5,7 +6,7 @@ const minimumIsland = (grid) => {
   for (let rowIndex = 0; rowIndex < grid.length; rowIndex++) {
     const row = grid[rowIndex];
     for (let colIndex = 0; colIndex < row.length; colIndex++) {
-      let total = explore(grid, rowIndex, colIndex, visited);
+      const total = explore(grid, rowIndex, colIndex, visited);
       if (total < minIsland && total !== 0) minIsland = total;
     }
   }
