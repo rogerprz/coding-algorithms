@@ -14,31 +14,22 @@ const getGraph = (edges) => {
   return hash;
 };
 const shortestPath = (edges, nodeA, nodeB) => {
-  console.log('-------------START----------------');
   const graph = getGraph(edges);
   const visited = new Set(nodeA);
   const queue = [[nodeA, 0]];
-  let shortest = -1;
-  console.log('NODE:', nodeA, nodeB, 'Q:', queue);
-  console.log('G:', graph);
 
   while (queue.length > 0) {
-    console.log('QUEUE:', queue);
-    let [current, pos] = queue.shift();
-    console.log('N:', current, pos);
-    // const [leftNode, rightNode] = graph[node];
-    pos++;
+    const [current, pos] = queue.shift();
+
+    if (current === nodeB) return pos;
+
     for (const node of graph[current]) {
       if (visited.has(node)) continue;
-      if (node === nodeB) {
-        shortest = pos;
-        return shortest;
-      }
       visited.add(node);
-      queue.push([node, pos]);
+      queue.push([node, pos + 1]);
     }
   }
-  return shortest;
+  return -1;
 };
 
 console.log(
