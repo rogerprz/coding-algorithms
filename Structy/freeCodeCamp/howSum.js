@@ -1,3 +1,7 @@
+// takes in targetSum and array of numbers as args
+// Return array containing any combo of elements that add up to exactly
+// the targetSum. If there is no combo that adds up to the targetSum, return null
+
 const howSum = (targetSum, numbers, memo = {}) => {
   if (targetSum in memo) {
     return memo[targetSum];

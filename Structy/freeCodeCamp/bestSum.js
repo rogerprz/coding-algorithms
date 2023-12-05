@@ -1,6 +1,7 @@
 //  The function should return an array containing the shortest combo of numbers that
 // add up to exactly the targetSum.
 // If there is a tie for the shortest combo, you may return any of one of the shortest
+
 const bestSum = (targetSum, numbers, memo = {}) => {
   if (targetSum in memo) return memo[targetSum];
   if (targetSum === 0) return [];
