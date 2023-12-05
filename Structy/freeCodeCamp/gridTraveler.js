@@ -1,3 +1,8 @@
+// Travel from top left to bottom right
+// can only move down or right
+// how many ways can you travel to the goal on a grid w/
+// dimension m * n
+
 const gridTraveler = (m, n, memo = {}) => {
   if (m === 1 && n === 1) return 1;
   if (m === 0 || n === 0) return 0;
