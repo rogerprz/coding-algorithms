@@ -3,6 +3,7 @@
 // If there is a tie for the shortest combo, you may return any of one of the shortest
 
 const bestSum = (targetSum, numbers, memo = {}) => {
+  if (targetSum in memo) return memo[targetSum];
   if (targetSum === 0) return [];
   if (targetSum < 0) return null;
 
@@ -15,11 +16,12 @@ const bestSum = (targetSum, numbers, memo = {}) => {
     if (currentCombo !== null) {
       const updateCombo = [...currentCombo, num];
       if (!shortestCombo || updateCombo.length < shortestCombo.length) {
+        memo[targetSum] = updateCombo;
         shortestCombo = updateCombo;
       }
     }
   }
-
+  memo[targetSum] = shortestCombo;
   return shortestCombo;
 };
 console.log('Output: 7', bestSum(7, [5, 4, 7, 3])); // [7]
