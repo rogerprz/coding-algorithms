@@ -4,7 +4,19 @@
 // You can reuse elements of "wordBank" as many time as needed.
 
 const countConstruct = (target, wordBank) => {
-  return target;
+  if (target === '') return 1;
+  // if (target )
+
+  let totalCount = 0;
+  for (const word of wordBank) {
+    if (target.indexOf(word) === 0) {
+      const numOfWaysForRest = countConstruct(target.splice(word.length), wordBank);
+      totalCount += numOfWaysForRest;
+    }
+  }
+  return totalCount;
 };
 
-console.log('Result: 1: ', countConstruct('abcdef', []));
+console.log('Result: 2: ', countConstruct('purple', ['purp', 'p', 'ur', 'le', 'purpl']));
+console.log('Result: 1: ', countConstruct('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd']));
+console.log('Result: 0: ', countConstruct('eeeeeeeeeeeeeeeeeeeeeeeeef', ['e', 'ee', 'eeee', 'eee', 'eeeeeee']));
