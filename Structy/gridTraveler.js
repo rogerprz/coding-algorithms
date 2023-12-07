@@ -4,13 +4,11 @@
 // dimension m * n
 
 const gridTraveler = (m, n, memo = {}) => {
-  if (m === 1 && n === 1) return 1;
-  if (m === 0 || n === 0) return 0;
   const pos = `${m},${n}`;
   if (pos in memo) return memo[pos];
+  if (m === 1 || n === 1) return 1;
 
   memo[pos] = gridTraveler(m - 1, n, memo) + gridTraveler(m, n - 1, memo);
-
   return memo[pos];
 };
 
