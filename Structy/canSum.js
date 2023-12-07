@@ -1,6 +1,6 @@
 // Write a function that take in a targetSum and an array of numbers as arguments
 // The function should return a boolean indicating  whether or not it is
-// possile to generate the targetSum using numbers from the array
+// possible to generate the targetSum using numbers from the array
 
 // Use an element of the array as many times as needed
 // All numbers are > 0
