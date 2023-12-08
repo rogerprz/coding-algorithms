@@ -19,11 +19,12 @@ const canConstruct = (target, wordBank, memo = {}) => {
 };
 
 console.log('Result: true: ', canConstruct('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd']));
-console.log('Result: false: ', canConstruct('skateboard', ['bo', 'rd', 'ate', 't', 'ska', 'sk', 'boar']));
+console.log('Result: false:', canConstruct('skateboard', ['bo', 'rd', 'ate', 't', 'ska', 'sk', 'boar']));
 console.log('Result: true: ', canConstruct('', ['cat', 'dog', 'mouse']));
+console.log('Result: True: ', canConstruct('enterapotentpot', ['a', 'p', 'ent', 'enter', 'ot', 'o', 't']));
 
-console.log('Result: 2: ', canConstruct('purple', ['purp', 'p', 'ur', 'le', 'purpl']));
+console.log('Result: True: ', canConstruct('purple', ['purp', 'p', 'ur', 'le', 'purpl']));
 console.log(
-  'Result: false: ',
+  'Result: false:',
   canConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef', ['e', 'ee', 'eeee', 'eee', 'eeeeeee'])
 );
