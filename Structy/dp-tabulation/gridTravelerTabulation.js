@@ -15,8 +15,8 @@ const gridTravelerTabulation = (m, n) => {
   return table[m][n];
 };
 
-console.log(gridTravelerTabulation(1, 1)); // 1
-console.log(gridTravelerTabulation(2, 3)); // 3
-console.log(gridTravelerTabulation(3, 2)); // 3
-console.log(gridTravelerTabulation(3, 3)); // 6
-console.log(gridTravelerTabulation(18, 18)); // 2333606220
+console.log('Output: 1:', gridTravelerTabulation(1, 1)); // 1
+console.log('Output: 3:', gridTravelerTabulation(2, 3)); // 3
+console.log('Output: 3:', gridTravelerTabulation(3, 2)); // 3
+console.log('Output: 6:', gridTravelerTabulation(3, 3)); // 6
+console.log('Output: 2333606220:', gridTravelerTabulation(18, 18)); // 2333606220
