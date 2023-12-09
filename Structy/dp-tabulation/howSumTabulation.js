@@ -8,14 +8,9 @@ const howSumTabulation = (targetSum, numbers) => {
 
   for (let i = 0; i < targetSum; i++) {
     const current = table[i];
-    if (current !== null) {
+    if (current) {
       for (const num of numbers) {
-        if (num + i > targetSum) continue;
-        if (table[i + num] === null) {
-          table[i + num] = [num];
-        } else {
-          table[i + num] = [...table[i], num];
-        }
+        table[i + num] = [...table[i], num];
       }
     }
   }
@@ -26,6 +21,6 @@ const howSumTabulation = (targetSum, numbers) => {
 console.log('Output: [3,2,2]', howSumTabulation(7, [2, 3])); // True
 console.log('Output: [3,4], [7]:', howSumTabulation(7, [5, 3, 4, 7])); // true
 console.log('Output: False', howSumTabulation(7, [2, 4])); // false
-console.log('Output: True', howSumTabulation(8, [2, 3, 5])); // false
-console.log('Output: 300 False', howSumTabulation(300, [7, 14])); // false
+console.log('Output: [ 2, 2, 2, 2 ], [3,5]', howSumTabulation(8, [2, 3, 5])); // false
+console.log('Output:  False', howSumTabulation(300, [7, 14])); // false
 console.log('Output: 210 True', howSumTabulation(210, [7, 14])); // True
