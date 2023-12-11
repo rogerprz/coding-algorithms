@@ -5,29 +5,28 @@
 
 // [ 1, 4, 10, 5 , 2, 12, 3 ]
 
-const maxBallonPoints = (nums) => {
+const maxBalloonPoints = (nums) => {
   if (nums.length === 0) return 0;
-  if (nums.length === 1) return nums[0];
-  if (nums.length === 2) return Math.max(...nums);
+  if (nums.length <= 2) return Math.max(...nums);
   let maxPoints = 0;
 
-  const maxBalloonPoints = (nums, index, points) => {
+  const dfs = (nums, index, points) => {
     if (index >= nums.length) {
       maxPoints = Math.max(maxPoints, points);
       return;
     }
     if (index === 0) {
-      maxBalloonPoints(nums, index + 2, points + nums[index]);
-      maxBalloonPoints(nums, index + 1, points);
+      dfs(nums, index + 2, points + nums[index]);
+      dfs(nums, index + 1, points);
     } else {
-      maxBalloonPoints(nums, index + 2, points + nums[index]);
-      maxBalloonPoints(nums, index + 1, points);
+      dfs(nums, index + 2, points + nums[index]);
+      dfs(nums, index + 1, points);
     }
   };
-  maxBalloonPoints(nums, 0, 0);
+  dfs(nums, 0, 0);
   return maxPoints;
 };
-console.log('Output:23:', maxBallonPoints([1, 4, 10, 5, 2, 12, 3])); // 23
-console.log('Output:37:', maxBallonPoints([1, 14, 10, 5, 20, 12, 3])); // 37
-console.log('Output: 304:', maxBallonPoints([1, 4, 1, 2, 300])); // 304
-console.log('Output: 303:', maxBallonPoints([1, 1, 1, 302, 300])); // 304
+console.log('Output:23:', maxBalloonPoints([1, 4, 10, 5, 2, 12, 3])); // 23
+console.log('Output:37:', maxBalloonPoints([1, 14, 10, 5, 20, 12, 3])); // 37
+console.log('Output: 304:', maxBalloonPoints([1, 4, 1, 2, 300])); // 304
+console.log('Output: 303:', maxBalloonPoints([1, 1, 1, 302, 300])); // 303
