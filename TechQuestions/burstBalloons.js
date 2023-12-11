@@ -10,20 +10,20 @@ const maxBalloonPoints = (nums) => {
   if (nums.length <= 2) return Math.max(...nums);
   let maxPoints = 0;
 
-  const dfs = (nums, index, points) => {
+  const dp = (nums, index, points) => {
     if (index >= nums.length) {
       maxPoints = Math.max(maxPoints, points);
       return;
     }
     if (index === 0) {
-      dfs(nums, index + 2, points + nums[index]);
-      dfs(nums, index + 1, points);
+      dp(nums, index + 2, points + nums[index]);
+      dp(nums, index + 1, points);
     } else {
-      dfs(nums, index + 2, points + nums[index]);
-      dfs(nums, index + 1, points);
+      dp(nums, index + 2, points + nums[index]);
+      dp(nums, index + 1, points);
     }
   };
-  dfs(nums, 0, 0);
+  dp(nums, 0, 0);
   return maxPoints;
 };
 console.log('Output:23:', maxBalloonPoints([1, 4, 10, 5, 2, 12, 3])); // 23
