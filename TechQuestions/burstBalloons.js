@@ -11,21 +11,19 @@ const maxBalloonPoints = (nums) => {
   let maxPoints = 0;
 
   const dp = (nums, index, points) => {
+    // base case when we've reached the end of the array and problem is solved
     if (index >= nums.length) {
       maxPoints = Math.max(maxPoints, points);
       return;
     }
-    if (index === 0) {
-      dp(nums, index + 2, points + nums[index]);
-      dp(nums, index + 1, points);
-    } else {
-      dp(nums, index + 2, points + nums[index]);
-      dp(nums, index + 1, points);
-    }
+    // when index is 0 base case
+    dp(nums, index + 2, points + nums[index]);
+    dp(nums, index + 1, points);
   };
   dp(nums, 0, 0);
   return maxPoints;
 };
+
 console.log('Output:23:', maxBalloonPoints([1, 4, 10, 5, 2, 12, 3])); // 23
 console.log('Output:37:', maxBalloonPoints([1, 14, 10, 5, 20, 12, 3])); // 37
 console.log('Output: 304:', maxBalloonPoints([1, 4, 1, 2, 300])); // 304
