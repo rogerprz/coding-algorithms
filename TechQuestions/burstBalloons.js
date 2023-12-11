@@ -16,8 +16,9 @@ const maxBalloonPoints = (nums) => {
       maxPoints = Math.max(maxPoints, points);
       return;
     }
-    // when index is 0 base case
+    // For initial index elem, we add current to points and add index + 2
     dp(nums, index + 2, points + nums[index]);
+    // We then give the option to skip the current index and start at elem with index of index + 1
     dp(nums, index + 1, points);
   };
   dp(nums, 0, 0);
