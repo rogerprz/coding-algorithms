@@ -15,6 +15,7 @@ const gridTravelerTabulation = (m, n) => {
   return table[m][n];
 };
 
+console.log('Output: 0:', gridTravelerTabulation(0, 1)); // 0
 console.log('Output: 1:', gridTravelerTabulation(1, 1)); // 1
 console.log('Output: 3:', gridTravelerTabulation(2, 3)); // 3
 console.log('Output: 3:', gridTravelerTabulation(3, 2)); // 3
