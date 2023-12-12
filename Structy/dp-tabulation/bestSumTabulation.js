@@ -5,20 +5,18 @@
 const bestSum = (targetSum, numbers) => {
   const table = Array(targetSum + 1).fill(null);
   table[0] = [];
-  //   console.log('T:', table);
-  for (let i = 0; i <= targetSum; i++) {
+
+  for (let i = 0; i < targetSum; i++) {
     if (table[i] !== null) {
       for (const num of numbers) {
-        const combination = [...table[i], num];
-
-        if (!table[i + num] || table[i + num].length > combination.length) {
-          table[i + num] = combination;
+        const currentBest = [...table[i], num];
+        const futureSpot = table[i + num];
+        if (!futureSpot || futureSpot.length > currentBest.length) {
+          table[i + num] = currentBest;
         }
       }
     }
   }
-  //   console.log('T:', table);
-
   return table[targetSum];
 };
 console.log('Output: 7', bestSum(7, [5, 4, 7, 3])); // [7]
