@@ -18,9 +18,9 @@ const howSumTabulation = (targetSum, numbers) => {
   return table[targetSum];
 };
 
-console.log('Output: [3,2,2]', howSumTabulation(7, [2, 3])); // True
-console.log('Output: [3,4], [7]:', howSumTabulation(7, [5, 3, 4, 7])); // true
+console.log('Output: [3,2,2]', howSumTabulation(7, [2, 3]));
+console.log('Output: [3,4], [7]:', howSumTabulation(7, [5, 3, 4, 7]));
 console.log('Output: False', howSumTabulation(7, [2, 4])); // false
-console.log('Output: [ 2, 2, 2, 2 ], [3,5]', howSumTabulation(8, [2, 3, 5])); // false
+console.log('Output: [ 2, 2, 2, 2 ], [3,5]', howSumTabulation(8, [2, 3, 5]));
 console.log('Output:  False', howSumTabulation(300, [7, 14])); // false
-console.log('Output: 210 True', howSumTabulation(210, [7, 14])); // True
+console.log('Output: 210 True', howSumTabulation(210, [7, 14]));
