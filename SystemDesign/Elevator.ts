@@ -71,7 +71,6 @@ class Elevator {
     } else if (nextFloor < this.currentFloor) {
       this.moveDown();
     } else {
-      this.lastStoppedFloor = nextFloor;
       this.requests.shift();
       if (this.requests.length > 0) {
         this.direction = this.requests[0] > this.currentFloor ? Direction.Up : Direction.Down;
