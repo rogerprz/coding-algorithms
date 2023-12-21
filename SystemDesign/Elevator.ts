@@ -3,8 +3,6 @@ interface IElevator {
   totalFloors: number;
   currentFloor: number;
   direction: string;
-  isMoving: boolean;
-  isDoorOpen: boolean;
   requests: number[];
 }
 
@@ -14,26 +12,29 @@ enum Direction {
   Idle = 'idle'
 }
 
+enum ElevatorStatus {
+  Moving = 'moving',
+  Idle = 'idle'
+}
+
 class Elevator {
   id: number;
   totalFloors: number;
   currentFloor: number;
   direction: Direction;
-  isMoving: any;
-  isDoorOpen: any;
-  requests: any;
+  state: ElevatorStatus;
+  requests: number[];
 
   constructor(id: number, totalFloors: number) {
     this.id = id;
     this.totalFloors = totalFloors;
     this.currentFloor = 0;
     this.direction = Direction.Up;
-    this.isMoving = false;
-    this.isDoorOpen = false;
+    this.state = ElevatorStatus.Idle;
     this.requests = [];
   }
 
-  public moveUp() {
+  private moveUp() {
     if (this.currentFloor < this.totalFloors) {
       setTimeout(() => this.move(), 1000);
       this.currentFloor++;
@@ -41,7 +42,7 @@ class Elevator {
     }
   }
 
-  public moveDown() {
+  private moveDown() {
     if (this.currentFloor > 0) {
       setTimeout(() => this.move(), 1000);
       this.currentFloor--;
@@ -53,7 +54,7 @@ class Elevator {
     this.requests.push(requestedFloor);
     this.requests.sort((a: number, b: number) => a - b);
     if (this.direction === Direction.Idle) {
-      this.direction = requestedFloor > this.currentFloor ? Direction.Up : Direction.Down;
+      this.direction = this.requests[0] > this.currentFloor ? Direction.Up : Direction.Down;
       this.move();
     }
   }
@@ -64,21 +65,31 @@ class Elevator {
       return;
     }
 
-    const nextFloor = this.requests.shift();
+    const nextFloor = this.requests[0];
     if (nextFloor > this.currentFloor) {
       this.moveUp();
     } else if (nextFloor < this.currentFloor) {
       this.moveDown();
+    } else {
+      this.lastStoppedFloor = nextFloor;
+      this.requests.shift();
+      if (this.requests.length > 0) {
+        this.direction = this.requests[0] > this.currentFloor ? Direction.Up : Direction.Down;
+        this.move();
+      } else {
+        this.direction = Direction.Idle;
+      }
     }
-    // Simulate time to move to next floor
     setTimeout(() => this.move(), 1000);
   }
 }
 
 class ElevatorController {
   elevators: Elevator[];
+  requests: number[];
   constructor(totalElevators: number, totalFloors: number) {
     this.elevators = [];
+    this.requests = [];
 
     for (let i = 0; i < totalElevators; i++) {
       this.elevators.push(new Elevator(i, totalFloors));
@@ -86,7 +97,7 @@ class ElevatorController {
   }
 
   requestElevator(requestedFloor: number) {
-    console.log(`Elevator requested on floor ${requestedFloor}`);
+    console.log(`Elevator Controller dispatched elevator to floor: ${requestedFloor}`);
     const elevator = this.findBestElevator(requestedFloor);
     elevator.processRequest(requestedFloor);
   }
@@ -147,3 +158,5 @@ building.requestElevator(5);
 building.requestElevator(3);
 building.requestElevator(7);
 building.requestElevator(2);
+building.requestElevator(8);
+building.requestElevator(1);
