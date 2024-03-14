@@ -7,19 +7,20 @@ const sequences = {
   BT: [9, 13]
 };
 
-const proteins = new Map([
-  [['AC', 'PQ'], 'P1'],
-  [['AC', 'PQ', 'XY'], 'P2'],
-  [['BC', 'AB'], 'P3'],
-  [['BT', 'AC'], 'P4']
-]);
+const proteins = {
+  'AC,PQ': 'P1',
+  'AC,PQ,XY': 'P2',
+  'BC,AB': 'P3',
+  'BT,AC': 'P4'
+};
 
 function generateProtein(sequences, proteins) {
   const result = [];
 
-  for (const [sequencesList, proteinId] of proteins) {
+  for (const [sequencesList, proteinId] of Object.entries(proteins)) {
     const seqArr = sequencesList.split(',');
-    const range = [Infinity, -Infinity];
+    let min = Infinity;
+    let max = -Infinity;
     // ['AC', 'PQ'],
     // ['AC', 'PQ', 'XY'],
     // ['BC', 'AB'],
@@ -27,8 +28,8 @@ function generateProtein(sequences, proteins) {
     // 'P1', 'P2', 'P3', 'P4'
     for (const seq of seqArr) {
       const [start, end] = sequences[seq];
-      range[0] = Math.min(range[0], start);
-      range[1] = Math.max(range[1], end);
+      min = Math.min(min, start);
+      max = Math.max(max, end);
     }
 
     let isValid = true;
@@ -36,14 +37,14 @@ function generateProtein(sequences, proteins) {
     for (const seq of seqArr) {
       const [start, end] = sequences[seq];
 
-      if (start < range[0] || end > range[1]) {
+      if (start < min || end > max) {
         isValid = false;
         break;
       }
     }
 
     if (isValid) {
-      result.push([proteinId, range[0], range[1]]);
+      result.push([proteinId, min, max]);
     }
   }
   console.log(result);
