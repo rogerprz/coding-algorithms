@@ -1,38 +1,23 @@
-function findProteins(genes) {
-  const result = [];
-  const hash = new Map();
+/* eslint-disable object-shorthand */
 
-  // Sort genes by start index
-  genes.sort((a, b) => a[1] - b[1]);
-
-  for (const [name, startIndex, endIndex] of genes) {
-    let proteinName = name;
-    let proteinStart = startIndex;
-    let proteinEnd = endIndex;
-
-    // Check if there are previous genes to concatenate
-    for (const [prevName, prevStart, prevEnd] of hash.values()) {
-      if (startIndex === prevEnd + 1) {
-        // Concatenate gene names
-        proteinName = `${prevName}_${name}`;
-        proteinStart = prevStart;
-        // Update protein end index
-        proteinEnd = endIndex;
-        // Remove the previous entry from the map
-        hash.delete(prevName);
-        break;
-      }
-    }
-
-    // Update hash with new protein
-    hash.set(proteinName, [proteinName, proteinStart, proteinEnd]);
-
-    // Add the protein to the result
-    result.push({ name: proteinName, startIndex: proteinStart, endIndex: proteinEnd });
-  }
-
-  return result;
-}
+// eslint-disable-next-line no-unused-vars
+const expectedResult = [
+  { name: 'DBZ', startIndex: 0, endIndex: 7 },
+  { name: 'bro2', startIndex: 7, endIndex: 22 },
+  { name: 'DBZ_bro2_PS', startIndex: 0, endIndex: 28 },
+  { name: 'DBZ_bro2', startIndex: 0, endIndex: 22 },
+  { name: 'DBZ_cryNow', startIndex: 0, endIndex: 16 },
+  { name: 'DBZ_PS', startIndex: 15, endIndex: 28 },
+  { name: 'DBZ', startIndex: 15, endIndex: 22 },
+  { name: 'bro2_PS', startIndex: 7, endIndex: 28 },
+  { name: 'cr8_PS', startIndex: 11, endIndex: 28 },
+  { name: 'cr8', startIndex: 11, endIndex: 22 },
+  { name: 'cryNow', startIndex: 7, endIndex: 16 },
+  { name: 'PEPPY_cr8_PS', startIndex: 4, endIndex: 28 },
+  { name: 'PEPPY_cr8', startIndex: 4, endIndex: 22 },
+  { name: 'PEPPY', startIndex: 4, endIndex: 11 },
+  { name: 'PS', startIndex: 22, endIndex: 28 }
+];
 
 // Test case
 const exampleGenes = [
@@ -45,22 +30,31 @@ const exampleGenes = [
   ['PS', 22, 28]
 ];
 
-const expectedResult = [
-  { name: 'DBZ', startIndex: 0, endIndex: 7 },
-  { name: 'cryNow', startIndex: 7, endIndex: 16 },
-  { name: 'PEPPY', startIndex: 4, endIndex: 11 },
-  { name: 'DBZ', startIndex: 15, endIndex: 22 },
-  { name: 'bro2', startIndex: 7, endIndex: 22 },
-  { name: 'cr8', startIndex: 11, endIndex: 22 },
-  { name: 'PS', startIndex: 22, endIndex: 28 },
-  { name: 'DBZ_cryNow', startIndex: 0, endIndex: 16 },
-  { name: 'PEPPY_cr8', startIndex: 4, endIndex: 22 },
-  { name: 'PEPPY_cr8_PS', startIndex: 4, endIndex: 28 },
-  { name: 'cr8_PS', startIndex: 11, endIndex: 28 },
-  { name: 'DBZ_PS', startIndex: 15, endIndex: 28 },
-  { name: 'DBZ_bro2', startIndex: 0, endIndex: 22 },
-  { name: 'DBZ_bro2_PS', startIndex: 0, endIndex: 28 },
-  { name: 'bro2_PS', startIndex: 7, endIndex: 28 }
-];
+function findProteins(genes) {
+  const result = [];
+  const hash = {};
 
-console.log(findProteins(exampleGenes));
+  genes.sort((a, b) => a[1] - b[1]);
+  for (let i = 0; i < genes.length; i++) {
+    let [currentName, startIndex, endIndex] = genes[i];
+    result.push({ name: currentName, startIndex, endIndex });
+
+    hash[currentName] = [currentName, startIndex, endIndex];
+    const hashArr = Object.values(hash);
+    for (let j = 0; j < hashArr.length; j++) {
+      let [prevName, prevStart, prevEnd] = hashArr[j];
+      // console.log(hashArr[j]);
+      if (startIndex === prevEnd) {
+        currentName = `${prevName}_${currentName}`;
+
+        result.push({ name: currentName, startIndex: prevStart, endIndex: endIndex });
+        hash[currentName] = [currentName, startIndex, endIndex];
+      }
+    }
+  }
+  return result;
+}
+
+const result = findProteins(exampleGenes);
+console.log(result);
+console.log(result.length === expectedResult.length); // Output: true
