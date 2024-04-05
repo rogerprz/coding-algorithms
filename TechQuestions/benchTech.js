@@ -34,21 +34,21 @@ function findProteins(genes) {
   const result = [];
   const hash = {};
 
-  genes.sort((a, b) => a[1] - b[1]);
+  // genes.sort((a, b) => a[1] - b[1]);
   for (let i = 0; i < genes.length; i++) {
-    let [currentName, startIndex, endIndex] = genes[i];
+    const [currentName, startIndex, endIndex] = genes[i];
     result.push({ name: currentName, startIndex, endIndex });
-
     hash[currentName] = [currentName, startIndex, endIndex];
+
     const hashArr = Object.values(hash);
     for (let j = 0; j < hashArr.length; j++) {
-      let [prevName, prevStart, prevEnd] = hashArr[j];
-      // console.log(hashArr[j]);
-      if (startIndex === prevEnd) {
-        currentName = `${prevName}_${currentName}`;
+      const [prevName, prevStart, prevEnd] = hashArr[j];
 
-        result.push({ name: currentName, startIndex: prevStart, endIndex: endIndex });
-        hash[currentName] = [currentName, startIndex, endIndex];
+      if (startIndex === prevEnd) {
+        const newName = `${prevName}_${currentName}`;
+
+        result.push({ name: newName, startIndex: prevStart, endIndex: endIndex });
+        hash[newName] = [newName, startIndex, endIndex];
       }
     }
   }
@@ -58,3 +58,26 @@ function findProteins(genes) {
 const result = findProteins(exampleGenes);
 console.log(result);
 console.log(result.length === expectedResult.length); // Output: true
+
+// Current output, incorrect:
+// [
+//   { name: 'DBZ', startIndex: 0, endIndex: 7 },
+//   { name: 'PEPPY', startIndex: 4, endIndex: 11 },
+//   { name: 'cryNow', startIndex: 7, endIndex: 16 },
+//   { name: 'DBZ_cryNow', startIndex: 0, endIndex: 16 },
+//   { name: 'bro2', startIndex: 7, endIndex: 22 },
+//   { name: 'DBZ_bro2', startIndex: 0, endIndex: 22 },
+//   { name: 'cr8', startIndex: 11, endIndex: 22 },
+//   { name: 'PEPPY_cr8', startIndex: 4, endIndex: 22 },
+//   { name: 'DBZ', startIndex: 15, endIndex: 22 },
+//   { name: 'PS', startIndex: 22, endIndex: 28 },
+//   { name: 'DBZ_PS', startIndex: 15, endIndex: 28 },
+//   { name: 'bro2_DBZ_PS', startIndex: 7, endIndex: 28 },
+//   { name: 'DBZ_bro2_bro2_DBZ_PS', startIndex: 7, endIndex: 28 },
+//   { name: 'cr8_DBZ_bro2_bro2_DBZ_PS', startIndex: 11, endIndex: 28 },
+//   {
+//     name: 'PEPPY_cr8_cr8_DBZ_bro2_bro2_DBZ_PS',
+//     startIndex: 11,
+//     endIndex: 28
+//   }
+// ];
