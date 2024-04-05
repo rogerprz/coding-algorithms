@@ -35,24 +35,18 @@ function findProteins(genes) {
   const hash = {};
 
   genes.sort((a, b) => a[1] - b[1]);
-  console.log('G:', genes);
-  for (let i = 0; i < genes.length; i++) {
-    const [currentName, startIndex, endIndex] = genes[i];
-    const before = { name: currentName, startIndex, endIndex };
-    result.push(before);
+
+  for (const [currentName, startIndex, endIndex] of genes) {
+    result.push({ name: currentName, startIndex, endIndex });
     hash[currentName] = [currentName, startIndex, endIndex];
 
-    const hashArr = Object.values(hash);
-    for (let j = 0; j < hashArr.length; j++) {
-      const [prevName, prevStart, prevEnd] = hashArr[j];
+    for (const [prevName, prevStart, prevEnd] of Object.values(hash)) {
       if (startIndex === prevEnd) {
         const newName = `${prevName}_${currentName}`;
 
         const newStartIndex = prevStart < startIndex ? prevStart : startIndex;
 
-        const add = { name: newName, startIndex: newStartIndex, endIndex: endIndex };
-
-        result.push(add);
+        result.push({ name: newName, startIndex: newStartIndex, endIndex: endIndex });
         hash[newName] = [newName, newStartIndex, endIndex];
       }
     }
