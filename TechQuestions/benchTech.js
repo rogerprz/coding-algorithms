@@ -34,21 +34,26 @@ function findProteins(genes) {
   const result = [];
   const hash = {};
 
-  // genes.sort((a, b) => a[1] - b[1]);
+  genes.sort((a, b) => a[1] - b[1]);
+  console.log('G:', genes);
   for (let i = 0; i < genes.length; i++) {
     const [currentName, startIndex, endIndex] = genes[i];
-    result.push({ name: currentName, startIndex, endIndex });
+    const before = { name: currentName, startIndex, endIndex };
+    result.push(before);
     hash[currentName] = [currentName, startIndex, endIndex];
 
     const hashArr = Object.values(hash);
     for (let j = 0; j < hashArr.length; j++) {
       const [prevName, prevStart, prevEnd] = hashArr[j];
-
       if (startIndex === prevEnd) {
         const newName = `${prevName}_${currentName}`;
 
-        result.push({ name: newName, startIndex: prevStart, endIndex: endIndex });
-        hash[newName] = [newName, startIndex, endIndex];
+        const newStartIndex = prevStart < startIndex ? prevStart : startIndex;
+
+        const add = { name: newName, startIndex: newStartIndex, endIndex: endIndex };
+
+        result.push(add);
+        hash[newName] = [newName, newStartIndex, endIndex];
       }
     }
   }
@@ -56,5 +61,13 @@ function findProteins(genes) {
 }
 
 const result = findProteins(exampleGenes);
-console.log(result);
-console.log(result.length === expectedResult.length); // Output: true
+console.log(
+  'RES:',
+  result.sort((a, b) => a.name.localeCompare(b.name)),
+  'EX:',
+  expectedResult.sort((a, b) => a.name.localeCompare(b.name))
+);
+console.log(
+  JSON.stringify(result.sort((a, b) => a.name.localeCompare(b.name))) ===
+    JSON.stringify(expectedResult.sort((a, b) => a.name.localeCompare(b.name)))
+);
