@@ -1,8 +1,4 @@
-// Your previous Plain Text content is preserved below:
-
-// Pad for Roger Perez - Software Engineer, Fullstack
-
-// Pin images on Pinterest come in various sizes. You are building a page showing a feed of Pins with varying heights (for the purposes of this question we’re not concerned about width).  You’re trying to figure out what is the best way to show the minimum number of pins per column that fits on the screen.
+// Pin images come in various sizes. You’re trying to figure out what is the best way to show the minimum number of pins per column that fits on the screen.
 
 // Given a max screen height of each column on the page and a list of pin heights, return the minimum number of pins used to fit the height of the screen. (assume there is an unlimited supply of Pins with all heights)
 
