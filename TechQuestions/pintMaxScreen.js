@@ -16,7 +16,6 @@
 function minScreens(pinHeights, maxHeight) {
   console.log('Start');
   // const count = Infinity;
-  let min = Infinity;
   const explore = (pinHeights, maxHeight, count) => {
     // [12, 5, 1]
     // base case
