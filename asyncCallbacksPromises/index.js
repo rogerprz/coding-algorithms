@@ -10,9 +10,7 @@
 
 const cart = ['shoes', 'shirts', 'pants'];
 
-const promise = createOrder(cart);
-
-promise
+createOrder(cart)
   .then((orderId) => {
     console.log('Order created:', orderId);
   })
