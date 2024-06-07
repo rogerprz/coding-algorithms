@@ -13,6 +13,11 @@ const cart = ['shoes', 'shirts', 'pants'];
 createOrder(cart)
   .then((orderId) => {
     console.log('Order created:', orderId);
+    return orderId;
+  })
+  .then((orderId) => {
+    console.log('ID:', orderId);
+    return proceedToPayment(orderId);
   })
   .catch((err) => {
     console.log('Error:', err.message);
@@ -37,6 +42,12 @@ function createOrder(cart) {
   return pr;
 }
 
+function proceedToPayment(orderId) {
+  return new Promise((resolve, reject) => {
+    resolve('Payment successful');
+  });
+}
+
 function validateCart(cart) {
-  return false;
+  return true;
 }
