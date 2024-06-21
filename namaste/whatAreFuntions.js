@@ -27,4 +27,7 @@ const named = function funcExpression() {
 // To pass functions as arguments to other functions, and to return functions as values from other functions.
 // Functions are first class citizens in javascript.
 
-// Arrow functions
+// Arrow functions - es6
+const arrow = () => {
+  console.log('Hi Tony');
+};
