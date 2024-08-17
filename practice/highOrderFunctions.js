@@ -42,8 +42,8 @@ console.log('Diameter', calculateDiameter(radius));
 
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-const logic = function (total, currentValue) {
-  return total + currentValue;
-};
+// const logic = function (total, currentValue) {
+//   return total + currentValue;
+// };
 const sum = numbers.reduce((total, currentValue) => total + currentValue, 0);
 console.log('Sum:', sum);
