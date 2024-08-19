@@ -20,6 +20,7 @@ class Trie {
 // Example usage:
 const trie = new Trie();
 trie.insert('apple');
+trie.insert('apron');
 console.log(trie.search('apple')); // true
 console.log(trie.search('app')); // false
 console.log(trie.startsWith('app')); // true
