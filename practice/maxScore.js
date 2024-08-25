@@ -20,7 +20,13 @@ function maxScore(nums) {
 
   // Monotonic decreasing stack.
   for (let i = 0; i < nums.length; i++) {
-    while (stack.length > 0 && nums[stack[stack.length - 1]] < nums[i]) {
+    // if stack > 0 and the top index in the stack is less than the current number
+    // Alternate way of saying this:
+    // if the current number is greater than the number at the top of the stack
+    // we pop the top of the stack because we want to keep the stack in decreasing order
+    // So 12 > 9, but 9 is not greater than 10, so we remove 9 from the stack
+    const currentNumber = nums[i];
+    while (stack.length > 0 && currentNumber > nums[stack[stack.length - 1]]) {
       stack.pop();
     }
     stack.push(i);
@@ -42,3 +48,6 @@ console.log(maxScore(test1)); // 32
 
 const test2 = [3, 7, 9, 10];
 console.log(maxScore(test2)); // 30
+
+const test3 = [4, 10, 6, 15, 5, 12]; // (3-0)* 15 + (5-3)*12 = 45 + 24 = 69
+console.log(maxScore(test3)); // 69
