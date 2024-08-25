@@ -15,3 +15,30 @@ Explanation: jump from index0 to index1 and then to index3
 What are the possible ways to approach this problem?
 Can it be done in better than O(n^2)?
 */
+function maxScore(nums) {
+  const stack = [];
+
+  // Monotonic decreasing stack.
+  for (let i = 0; i < nums.length; i++) {
+    while (stack.length > 0 && nums[stack[stack.length - 1]] < nums[i]) {
+      stack.pop();
+    }
+    stack.push(i);
+  }
+
+  // Compute the result
+  let result = 0;
+  while (stack.length > 0) {
+    const index = stack.pop();
+    const prevIndex = stack.length === 0 ? 0 : stack[stack.length - 1];
+    result += (index - prevIndex) * nums[index];
+  }
+
+  return result;
+}
+// Example usage:
+const test1 = [3, 12, 9, 10];
+console.log(maxScore(test1)); // 32
+
+const test2 = [3, 7, 9, 10];
+console.log(maxScore(test2)); // 30
