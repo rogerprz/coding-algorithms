@@ -1,33 +1,13 @@
-const countPaths = (grid) => {
-  const explore = (grid, row, col, memo = {}) => {
-    const rowInbounds = row < grid.length;
-    const colInbounds = col < grid[0].length;
+const countPaths = (grid, row = 0, col = 0, memo = {}) => {
+  const pos = `${row},${col}`;
+  if (pos in memo) return memo[pos];
+  if (row === grid.length || col === grid[0].length || grid[row][col] === 'X') return 0;
+  if (row === grid.length - 1 && col === grid[0].length - 1) return 1;
 
-    if (!rowInbounds || !colInbounds) {
-      return 0;
-    }
-    if (grid[row][col] === 'X') {
-      return 0;
-    }
-    const pos = `${row},${col}`;
-    if (pos in memo) return memo[pos];
-
-    explore(grid, row + 1, col, memo);
-    explore(grid, row, col + 1, memo);
-
-    memo[pos] = 1;
-    return 1;
-  };
-  let count = 0;
-  for (let row = 0; row < grid.length; row++) {
-    for (let col = 0; col < grid[0].length; col++) {
-      const value = grid[row][col];
-      if (value === 'O') {
-        count += explore(grid, row, col);
-      }
-    }
-  }
-  return count;
+  const downCount = countPaths(grid, row + 1, col, memo);
+  const rightCount = countPaths(grid, row, col + 1, memo);
+  memo[pos] = downCount + rightCount;
+  return memo[pos];
 };
 
 const grid = [
