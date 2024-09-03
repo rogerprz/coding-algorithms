@@ -1,42 +1,36 @@
+const deltas = [
+  [1, 0],
+  [-1, 0],
+  [0, 1],
+  [0, -1]
+];
 const closestCarrot = (grid, startRow, startCol) => {
-  const visited = new Set();
+  const visited = new Set(`${startRow},${startCol}`);
+  const queue = [[startRow, startCol, 0]];
 
-  const explore = (grid, row, col) => {
-    const rowInbounds = row >= 0 && row < grid.length;
-    const colInbounds = col >= 0 && col < grid[0].length;
-    const pos = `${row},${col}`;
-    if (!rowInbounds || !colInbounds) {
-      return 0;
-    }
+  while (queue.length > 0) {
+    const [row, col, distance] = queue.shift();
 
-    if (visited.has(pos)) {
-      return 0;
-    }
-    if (grid[row][col] === 'C') {
-      return 0;
-    }
-    visited.add(pos);
-    if (grid[row][col] === 'X') {
-      return null;
-    }
-    const theRow = [...grid];
-    theRow[row][col] += ' !';
-    console.log('P:', pos, 'V:', grid[row][col]);
-    console.log(theRow);
-    const distance = Infinity;
-    const down = explore(grid, row + 1, col);
-    if (!down) {
-      return distance;
-    }
-    const up = explore(grid, row - 1, col);
-    const right = explore(grid, row, col + 1);
-    const left = explore(grid, row, col - 1);
-    return distance;
-  };
+    if (grid[row][col] === 'C') return distance;
 
-  explore(grid, startRow, startCol);
+    for (const delta of deltas) {
+      let [deltaRow, deltaCol] = delta;
+      deltaRow += row;
+      deltaCol += col;
 
-  return 'something';
+      const rowInbounds = deltaRow >= 0 && deltaRow < grid.length;
+      const colInbounds = deltaCol >= 0 && deltaCol < grid[0].length;
+
+      const pos = `${deltaRow},${deltaCol}`;
+
+      if (rowInbounds && colInbounds && grid[row][col] !== 'X' && !visited.has(pos)) {
+        queue.push([deltaRow, deltaCol, distance + 1]);
+        visited.add(pos);
+      }
+    }
+  }
+
+  return -1;
 };
 
 const gridFour = [
