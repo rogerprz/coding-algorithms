@@ -47,24 +47,6 @@ function resolveString(input) {
   return result;
 }
 
-// Test cases
-console.log(resolveStringUsingRegex('%z_%x_%y_world')); // Output: hello_new_newworld_world
-
-updateVariable('x', 'updated');
-console.log(resolveStringUsingRegex('%z_%x_%y_world')); // Output: hello_updated_updatedworld_world
-
-updateVariable('y', 'newvalue');
-console.log(resolveStringUsingRegex('%z_%x_%y_world')); // Output: hello_updated_newvalue_world
-
-console.log(resolveStringUsingRegex('No variables here')); // Output: No variables here
-
-console.log(resolveStringUsingRegex('%a_%b_%c')); // Output: %a_%b_%c (undefined variables remain unchanged)
-
-updateVariable('a', 'first');
-updateVariable('b', '%a_second');
-updateVariable('c', '%b_third');
-console.log(resolveStringUsingRegex('%a_%b_%c')); // Output: first_first_second_first_second_third
-
 console.log('------------------------------');
 console.log('|       Without Regex         |');
 console.log('------------------------------');
@@ -86,3 +68,24 @@ updateVariable('a', 'first');
 updateVariable('b', '%a_second');
 updateVariable('c', '%b_third');
 console.log(resolveString('%a_%b_%c')); // Output: first_first_second_first_second_third
+console.log('------------------------------');
+console.log('|       With Regex         |');
+console.log('------------------------------');
+
+// Test cases
+console.log(resolveStringUsingRegex('%z_%x_%y_world')); // Output: hello_new_newworld_world
+
+updateVariable('x', 'updated');
+console.log(resolveStringUsingRegex('%z_%x_%y_world')); // Output: hello_updated_updatedworld_world
+
+updateVariable('y', 'newvalue');
+console.log(resolveStringUsingRegex('%z_%x_%y_world')); // Output: hello_updated_newvalue_world
+
+console.log(resolveStringUsingRegex('No variables here')); // Output: No variables here
+
+console.log(resolveStringUsingRegex('%a_%b_%c')); // Output: %a_%b_%c (undefined variables remain unchanged)
+
+updateVariable('a', 'first');
+updateVariable('b', '%a_second');
+updateVariable('c', '%b_third');
+console.log(resolveStringUsingRegex('%a_%b_%c')); // Output: first_first_second_first_second_third
