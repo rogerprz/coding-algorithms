@@ -43,13 +43,17 @@ function maxScore(nums) {
   return result;
 }
 // Example usage:
-const test1 = [3, 12, 9, 10];
-console.log(maxScore(test1)); // 32
+// const test1 = [3, 12, 9, 10];
+// console.log(maxScore(test1)); // 32
 
-const test2 = [3, 7, 9, 10];
-console.log(maxScore(test2)); // 30
+// const test2 = [3, 7, 9, 10];
+// console.log(maxScore(test2)); // 30
+// const test22 = [3, 7, 9, 10, 15]; // (4-0)* 15 = 60
+// console.log('TEST:', maxScore(test22)); // 60
 
 const test3 = [4, 10, 6, 15, 5, 12]; // (3-0)* 15 + (5-3)*12 = 45 + 24 = 69
+//             0, 1,  2, 3,  4 , 5
+
 console.log(maxScore(test3)); // 69
 
 const testCase1 = [1, 2, 3, 4, 5]; // 20 #you jump to ast position, so the score would be 5 * 4 = 20
