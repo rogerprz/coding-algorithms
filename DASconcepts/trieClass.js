@@ -1,23 +1,17 @@
 /* eslint-disable max-classes-per-file */
-class TrieNode {
-  constructor() {
-    this.children = {};
-    this.isEndOfWord = false;
-  }
-}
 
 class Trie {
   constructor() {
-    this.root = new TrieNode();
+    this.root = {};
   }
 
   insert(word) {
     let node = this.root;
     for (const char of word) {
-      if (!node.children[char]) {
-        node.children[char] = new TrieNode();
+      if (!node[char]) {
+        node[char] = {};
       }
-      node = node.children[char];
+      node = node[char];
     }
     node.isEndOfWord = true;
   }
@@ -26,6 +20,7 @@ class Trie {
 // Example usage:
 const trie = new Trie();
 trie.insert('apple');
+trie.insert('apron');
 console.log(trie.search('apple')); // true
 console.log(trie.search('app')); // false
 console.log(trie.startsWith('app')); // true

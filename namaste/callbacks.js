@@ -1,5 +1,5 @@
 // What is a callback function in JavaScript?
-setTimeout(function () {
+setTimeout(() => {
   console.log('timer');
 }, 5000);
 
@@ -8,7 +8,7 @@ function x(y) {
   y();
 }
 
-x(function y() {
+x(() => {
   console.log('y');
 });
 //  Javascript is a synchronous, single-threaded language. This means that it can execute only one task at a time.
