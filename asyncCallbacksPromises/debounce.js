@@ -1,17 +1,28 @@
-function sayHello(x) {
-  console.log(x);
-}
+const sayHello = (x) => console.log('My name is', this.name);
 
 function debounce(func, wait) {
-  let timeout;
-  return (...args) => {
+  let timeout = null;
+  // console.log('TIME:', wait);
+
+  return function (...args) {
     clearTimeout(timeout);
-    timeout = setTimeout(() => func(...arg), wait);
+    // console.log('ARGS:', ...args);
+    timeout = setTimeout(() => {
+      console.log('In timeout');
+      return func.apply(this, args);
+    }, wait);
   };
 }
 
-const debouncedSayHello = debounce(sayHello, 100);
-debouncedSayHello(1);
-debouncedSayHello(2);
+const debouncedSayHello = debounce(sayHello, 2500);
+debouncedSayHello('Hello');
+debouncedSayHello('Second');
 debouncedSayHello(3);
 setTimeout(() => debouncedSayHello(4), 200);
+
+const amy = {
+  name: 'amy',
+  speak: debounce(sayHello)
+};
+
+amy.speak();
